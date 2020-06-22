@@ -33,6 +33,8 @@ a{
     top: 50%;
     transform: translateY(-50%);
     position: absolute;
+    box-shadow: 1px 1px 7px 2px #80808059;
+    z-index: 9;
 }
 
 .search-menu i {
@@ -42,12 +44,13 @@ a{
     transform: translateY(-50%);
     font-size: 22px;
     color: #f30;
+    z-index: 10;
 }
 
 .eshop-header::after {
     position: absolute;
     content: "";
-    width: calc(57% - 10px);
+    width: 57%;
     height: 100%;
     background: white;
     z-index: 1;
@@ -55,7 +58,7 @@ a{
     right: 0;
 }
 
-.triangle {border: 30px solid transparent;right: -14px;position: absolute;border-right: 30px solid white;}
+.triangle {border: 30px solid transparent;right: 57%;position: absolute;border-right: 30px solid white;}
 
 .eshop-nav-menu {
     position: relative;

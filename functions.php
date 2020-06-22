@@ -185,6 +185,19 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
+
+
+/**
+ * Require Class to require plugin need install for wordpress theme
+ */
+require get_template_directory() . '/inc/class-tgm-plugin-activation.php';
+require get_template_directory() . '/inc/options/require-plugins.php';
+
+/**
+ * Require options
+ */
+require get_template_directory() . '/inc/options/custom-options.php';
+
 /**
  * Load Jetpack compatibility file.
  */

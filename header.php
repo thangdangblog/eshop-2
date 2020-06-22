@@ -34,7 +34,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="search-menu">
-                            <div class="triangle"></div>
+
                             <input type="text" id="search">
                             <i class="fas fa-search"></i>
                         </div>
@@ -51,6 +51,7 @@
                             ?>
                         </div>
                     </div>
+                    <div class="triangle"></div>
                 </div>
             </div>
         </div>
