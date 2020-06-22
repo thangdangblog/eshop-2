@@ -1,0 +1,206 @@
+.header-fearture {
+    margin-top: 30px;
+}
+.right-featured ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    font-size: 13px;
+}
+
+.right-featured ul li {
+    border-bottom: 1px solid #efefef;
+    padding: 10px;
+    border-left: 1px solid #efefef;
+    border-right: 1px solid #efefef;
+}
+
+.right-featured ul li:nth-child(1) {
+    border-top: 1px solid #efefef;
+}
+
+.header-ight-featured {
+    height: 40px;
+}
+
+.header-ight-featured .title {
+    height: 40px;
+    line-height: 40px;
+    background: red;
+    position: relative;
+    max-width: 50%;
+    padding-left: 20px;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 500;
+}
+
+.header-ight-featured .title::after {
+    border: 20px solid transparent;
+    border-right: 20px solid white;
+    content: "";
+    position: absolute;
+    right: 0;
+}
+
+.right-featured {
+    background: white;
+}
+
+.banner-right-featured {
+    margin-top: 10px;
+}
+
+.banner-right-featured img {
+    width: 100%;
+    object-fit: cover;
+}
+
+button.owl-prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: #3838386e !important;
+    z-index: 9999;
+    left: 10px;
+    border-radius: 4px;
+    display: none;
+}
+
+button.owl-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: #3838386e !important;
+    z-index: 9999;
+    right: 10px;
+    border-radius: 4px;
+    display: none;
+}
+.owl-dots{
+    display: none;
+}
+
+.slide-home:hover button.owl-prev,.slide-home:hover button.owl-next{
+    display: block;
+}
+
+button.owl-next::after {
+    color: #fff;
+    content: "\f105";
+    font-family: Font Awesome\ 5 Free;
+    display: block;
+    position: static;
+    background-color: transparent;
+    line-height: 44px;
+    width: 100%;
+    font-size: 25px;
+    font-weight: 900;
+    overflow: hidden;
+    height: 40px;
+}
+
+button.owl-prev::after {
+    color: #fff;
+    content: "\f053";
+    font-family: Font Awesome\ 5 Free;
+    display: block;
+    position: static;
+    background-color: transparent;
+    line-height: 44px;
+    width: 100%;
+    font-size: 25px;
+    font-weight: 900;
+    overflow: hidden;
+    height: 40px;
+}
+
+ul#carousel-custom-dots {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    height: 68px;
+    background: white;
+    overflow: hidden;
+}
+
+ul#carousel-custom-dots li {
+    display: inline-block;
+    width: 20%;
+    height: 100%;
+    margin-left: -4px;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+ul#carousel-custom-dots li a {
+    height: 100%;
+    text-align: center;
+    display: block;
+    padding: 10px;
+    font-size: 14px;
+}
+ul#carousel-custom-dots li.active {
+    border-bottom: 2px solid red;
+}
+
+.slide-home .owl-item img {
+    display: block;
+    width: 100%;
+    height: 323px;
+}
+
+.title-post a {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.title-post :hover {
+    color: red !important;
+}
+
+.title-post a:visited {
+    color: #333;
+}
+
+.deal-soc {
+    background: white;
+    margin-top: 40px;
+    position: relative;
+    padding: 40px;
+}
+
+.deal-soc .title-deal {
+    position: absolute;
+    left: 50%;
+    top: -20px;
+    z-index: 999;
+    transform: translateX(-50%);
+    background: red;
+    width: 200px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    height: 40px;
+    line-height: 40px;
+}
+
+.deal-soc .title-deal::after {content: "";position: absolute;border: 20px solid transparent;border-left: 20px solid red;right: -40px;}
+
+.deal-soc .title-deal::before {
+    content: "";
+    position: absolute;
+    border: 20px solid transparent;
+    border-right: 20px solid red;
+    left: -40px;
+}
+
+.deal-soc .one-product {
+    padding: 10px;
+}
