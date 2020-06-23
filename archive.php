@@ -41,7 +41,7 @@ get_header();
                                         <div class="featured-tintuc">
                                             <?php eshop_mobile_post_thumbnail(); ?>
                                             <div class="more-info-featured-tintuc">
-                                                <a href="<?php the_permalink() ?>"><?php the_title( '<h2 class="entry-title">', '</h2>' ); ?></a>
+                                                <a href="<?php the_permalink() ?>"><?php the_title('<h2 class="entry-title">', '</h2>'); ?></a>
                                                 <?php eshop_mobile_posted_on(); ?>
                                             </div>
                                         </div>
@@ -50,9 +50,13 @@ get_header();
                                 <?php else: ?>
 
                                     <div style="padding: 5px" class="col-md-3">
-                                        <?php eshop_mobile_post_thumbnail(); ?>
-                                        <div class="more-info-post">
-                                            <a href="<?php the_permalink() ?>"> <h2 class="entry-title"><?php echo substr_text(90, get_the_title($post_loop->ID)) ?></h2></a>
+                                        <div class="post-item">
+                                            <?php eshop_mobile_post_thumbnail(); ?>
+                                            <div class="more-info-post">
+                                                <a href="<?php the_permalink() ?>"><h2
+                                                            class="entry-title"><?php echo substr_text(90, get_the_title($post_loop->ID)) ?></h2>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -80,12 +84,18 @@ get_header();
 
                         $post_loop = new WP_Query($args_post);
                         ?>
-                        <?php if($post_loop->have_posts()) ?>
+                        <?php if ($post_loop->have_posts()) ?>
                         <div class="content-post">
-                            <div class="row">
-                                <div class="col-md-4"></div>
-                                <div class="col-md-8"></div>
-                            </div>
+                            <?php while($post_loop->have_posts()): $post_loop->the_post() ?>
+                                <div class="row mt-4">
+                                    <div class="col-md-4">
+                                        <?php eshop_mobile_post_thumbnail(); ?>
+                                    </div>
+                                    <div class="col-md-8">
+
+                                    </div>
+                                </div>
+                            <?php endwhile; ?>
                         </div>
                     </div>
 
