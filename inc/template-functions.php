@@ -35,3 +35,4 @@ function eshop_mobile_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'eshop_mobile_pingback_header' );
+

@@ -9,43 +9,94 @@
 
 get_header();
 ?>
+    <div class="breadcrumb">
+        <div class="container">
+            <div class="home"><a href="<?php echo home_url(); ?>">Trang chủ</a> > <strong>Tin tức</strong></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <main id="primary" class="site-main">
+                    <?php
+                    $args_post = array(
+                        'post_type' => 'post',
+                        'posts_per_page' => 5,
+                    );
 
-	<main id="primary" class="site-main">
+                    $post_loop = new WP_Query($args_post);
+                    ?>
 
-		<?php if ( have_posts() ) : ?>
+                    <?php if ($post_loop->have_posts()) :
+                    $i = 0; ?>
 
-			<header class="page-header">
-				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+                    <div class="container">
+                        <div class="row">
+                            <?php while ($post_loop->have_posts()) :$post_loop->the_post(); ?>
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+                                <?php if ($i == 0): ?>
 
-			endwhile;
+                                    <div style="padding: 5px" class="col-md-12">
+                                        <div class="featured-tintuc">
+                                            <?php eshop_mobile_post_thumbnail(); ?>
+                                            <div class="more-info-featured-tintuc">
+                                                <a href="<?php the_permalink() ?>"><?php the_title( '<h2 class="entry-title">', '</h2>' ); ?></a>
+                                                <?php eshop_mobile_posted_on(); ?>
+                                            </div>
+                                        </div>
+                                    </div>
 
-			the_posts_navigation();
+                                <?php else: ?>
 
-		else :
+                                    <div style="padding: 5px" class="col-md-3">
+                                        <?php eshop_mobile_post_thumbnail(); ?>
+                                        <div class="more-info-post">
+                                            <a href="<?php the_permalink() ?>"> <h2 class="entry-title"><?php echo substr_text(90, get_the_title($post_loop->ID)) ?></h2></a>
+                                        </div>
+                                    </div>
 
-			get_template_part( 'template-parts/content', 'none' );
+                                <?php endif;
+                                $i++; ?>
 
-		endif;
-		?>
+                            <?php endwhile; ?>
+                            <?php wp_reset_postdata(); ?>
+                        </div>
 
-	</main><!-- #main -->
+                        <?php else : ?>
+
+                            <?php get_template_part('template-parts/content', 'none'); ?>
+
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="container p-0">
+                        <div class="header-tintuc"><h2>Tin tức mới nhất</h2></div>
+                        <?php
+                        $args_post = array(
+                            'post_type' => 'post',
+                            'posts_per_page' => 5,
+                        );
+
+                        $post_loop = new WP_Query($args_post);
+                        ?>
+                        <?php if($post_loop->have_posts()) ?>
+                        <div class="content-post">
+                            <div class="row">
+                                <div class="col-md-4"></div>
+                                <div class="col-md-8"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </main><!-- #main -->
+            </div>
+            <div class="col-md-3">
+                <?php get_sidebar(); ?>
+            </div>
+        </div>
+    </div>
 
 <?php
-get_sidebar();
+
 get_footer();

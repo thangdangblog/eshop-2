@@ -536,7 +536,6 @@ table {
 a {
 	color: #4169e1;
 	font-size: 14px;
-	font-weight: 600;
 }
 
 a:visited {
@@ -681,6 +680,8 @@ textarea {
 	display: block;
 	left: auto;
 }
+
+.clear-fix {clear: both;}
 
 .main-navigation ul ul a {
 	width: 200px;
@@ -983,6 +984,90 @@ textarea {
 	-ms-flex: 0 0 40%;
 	flex: 0 0 40%;
 	max-width: 40%;
+}
+
+footer#colophon {
+	background: white;
+}
+
+.site-info {
+	text-align: center;
+	padding: 7px 0px;
+}
+
+footer#colophon a {
+	font-size: 14px !important;
+}
+
+footer#colophon h3 {
+	font-size: 14px;
+}
+
+footer#colophon {
+	font-size: 14px;
+	padding: 25px !important;
+}
+
+footer#colophon ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	margin-top: 15px;
+}
+
+footer#colophon ul li a {
+	color: #494848;
+}
+
+footer#colophon ul a {
+	font-weight: normal;
+}
+
+footer#colophon ul li {
+	padding: 2px 0px;
+}
+
+.site-info a {
+	color: #b8b8b8;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.site-info {
+	color: #b8b8b8;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+footer#colophon a:hover {
+	color: #f33;
+}
+
+
+.scroll-to-top {
+	position: fixed;
+	right: 16px;
+	bottom: 15px;
+	z-index: 999999;
+	background: red;
+	width: 36px;
+	height: 35px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 35px;
+	cursor: pointer;
+}
+
+.scroll-to-top i {
+	color: white;
+}
+
+div#primary-sidebar-5 ul li {
+	display: inline-block;
+}
+
+div#primary-sidebar-5 ul li img {
+	width: 60px;
 }
 
 @media (min-width: 576px) {

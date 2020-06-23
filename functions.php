@@ -51,6 +51,7 @@ if ( ! function_exists( 'eshop_mobile_setup' ) ) :
 		register_nav_menus(
 			array(
 				'menu-1' => esc_html__( 'Primary', 'eshop-mobile' ),
+				'menu-2' => esc_html__( 'Menu Location 2', 'eshop-mobile' ),
 			)
 		);
 
@@ -156,6 +157,10 @@ function eshop_mobile_scripts() {
         wp_enqueue_script( 'eshop-home-js', get_template_directory_uri() . '/assets/js/home.js', array(), _S_VERSION, true );
     }
 
+	if(is_category()){
+        wp_enqueue_style( 'eshop-category-style', get_template_directory_uri().'/assets/css/category.css', array(), _S_VERSION );
+    }
+
 	wp_enqueue_script( 'eshop-mobile-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'eshop-bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array(), _S_VERSION, true );
 
@@ -197,6 +202,11 @@ require get_template_directory() . '/inc/options/require-plugins.php';
  * Require options
  */
 require get_template_directory() . '/inc/options/custom-options.php';
+
+/**
+ * Require file registes widgets
+ */
+require get_template_directory() . '/inc/options/widgets.php';
 
 /**
  * Load Jetpack compatibility file.

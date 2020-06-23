@@ -27,8 +27,8 @@ if ( ! function_exists( 'eshop_mobile_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'eshop-mobile' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+			esc_html_x( 'Ngày đăng: %s', 'post date', 'eshop-mobile' ),
+            $time_string
 		);
 
 		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -162,4 +162,22 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 	function wp_body_open() {
 		do_action( 'wp_body_open' );
 	}
+endif;
+
+
+if ( ! function_exists( 'substr_text' ) ) :
+    /**
+     * Substring text to $wordCount
+     */
+    function substr_text($wordCount,$string) {
+        if(strlen($string) > $wordCount ){
+            $string = wordwrap($string, $wordCount);
+            $i = strpos($string, "\n");
+            if ($i) {
+                $string = substr($string, 0, $i);
+            }
+            return $string . "...";
+        }
+        return $string;
+    }
 endif;
