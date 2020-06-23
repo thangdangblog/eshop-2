@@ -1,12 +1,17 @@
+body{
+    background: #ffffff !important;
+}
 .featured-tintuc img {
     width: 100%;
-    height: 350px;
+    height: 400px;
     object-fit: cover;
     object-position: center center;
+    transition: 0.4s;
 }
 
 .featured-tintuc {
     position: relative;
+    overflow: hidden;
 }
 
 .more-info-featured-tintuc {
@@ -14,6 +19,7 @@
     bottom: 0;
     color: white;
     padding: 20px;
+    transition: 0.4s;
 }
 
 .more-info-featured-tintuc a {
@@ -47,4 +53,61 @@
     width: 100%;
     height: 120px;
     object-fit: cover;
+}
+
+.featured-tintuc:hover img {
+    transform: scale(1.1);
+}
+
+.featured-tintuc:hover .more-info-featured-tintuc {
+    transform: translateY(-10px);
+}
+
+.more-infor-item h2 {
+    display: block;
+    font-size: 20px;
+    color: #444;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.more-infor-item h2:hover {
+    color: #f33;
+}
+
+p.item-blog-sumary {
+    font-size: 14px;
+    color: #4d4d4d;
+}
+
+.more-post-time {
+    font-size: 13px;
+    color: #aaa;
+    margin-bottom: 5px;
+}
+
+.content-post img {
+    height: 140px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.pagenavi{
+
+    margin: 20px 0 20px 0;
+
+}
+
+.pagenavi span,.pagenavi a{color: #4d4d4d;padding:3px;margin-right:5px;background:transparent;border:1px solid #757575}
+
+.pagenavi a:hover,.pagenavi .current{background:transparent;color:#4d4d4d;text-decoration:none}
+
+.pagenavi .page-numbers,.pagenavi .current{color: #4d4d4d;font-weight:bold}
+
+.pagenavi .current{color: red;}
+
+.pagenavi .page-numbers{border:1px solid #DDD;padding: 8px; border-radius: 8px;}
+
+.pagenavi {
+    text-align: center;
 }

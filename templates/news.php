@@ -1,4 +1,8 @@
 <?php
+//Template Name: News Template
+?>
+
+<?php
 /**
  * The template for displaying archive pages
  *
@@ -52,7 +56,7 @@ get_header();
                                             <?php eshop_mobile_post_thumbnail(); ?>
                                             <div class="more-info-post">
                                                 <a href="<?php the_permalink() ?>"><h2
-                                                            class="entry-title"><?php echo substr_text(90, get_the_title($post_loop->ID)) ?></h2>
+                                                        class="entry-title"><?php echo substr_text(90, get_the_title($post_loop->ID)) ?></h2>
                                                 </a>
                                             </div>
                                         </div>
@@ -77,8 +81,8 @@ get_header();
                         <?php
                         $args_post = array(
                             'post_type' => 'post',
-                            'posts_per_page' => 3,
-                            'page' => get_query_var('page')
+                            'posts_per_page' => 4,
+                            'paged' => get_query_var('paged')
                         );
 
                         $post_loop = new WP_Query($args_post);
@@ -93,7 +97,7 @@ get_header();
                                     <div class="col-md-8">
                                         <div class="more-infor-item">
                                             <a href="<?php the_permalink() ?>"><?php the_title('<h2 class="entry-title">', '</h2>'); ?></a>
-                                            <div class="more-post-time"><?php eshop_mobile_posted_on(); ?></div>
+                                            <div class="more-post-time"><?php eshop_mobile_posted_by() ?> <?php eshop_mobile_posted_on(); ?></div>
                                             <p class="item-blog-sumary"><?php echo substr_text(200,get_the_excerpt($post_loop->ID)); ?></p>
                                         </div>
                                     </div>
@@ -114,3 +118,4 @@ get_header();
 <?php
 
 get_footer();
+

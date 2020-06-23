@@ -157,7 +157,7 @@ function eshop_mobile_scripts() {
         wp_enqueue_script( 'eshop-home-js', get_template_directory_uri() . '/assets/js/home.js', array(), _S_VERSION, true );
     }
 
-	if(is_category()){
+	if(is_page_template('templates/news.php')){
         wp_enqueue_style( 'eshop-category-style', get_template_directory_uri().'/assets/css/category.css', array(), _S_VERSION );
     }
 
@@ -215,3 +215,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+function test_function(){
+}
+add_action('wp','test_function');
