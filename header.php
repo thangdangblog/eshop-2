@@ -29,7 +29,7 @@
                 <div class="row">
                     <div class="col-md-2">
                         <div class="eshop-logo">
-                            <img src="https://bizweb.dktcdn.net/100/348/133/themes/709285/assets/logo.png?1586914632171" alt="" class="eshop-logo-image">
+                            <a href="<?php home_url() ?>"><img src="https://bizweb.dktcdn.net/100/348/133/themes/709285/assets/logo.png?1586914632171" alt="" class="eshop-logo-image"></a>
                         </div>
                     </div>
                     <div class="col-md-3">

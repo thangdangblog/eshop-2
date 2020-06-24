@@ -39,7 +39,7 @@ get_header();
 
                                 <?php if ($i == 0): ?>
 
-                                    <div style="padding: 5px" class="col-md-12">
+                                    <div style="padding-left: 5px;padding-right: 5px" class="col-md-12">
                                         <div class="featured-tintuc">
                                             <?php eshop_mobile_post_thumbnail(); ?>
                                             <div class="more-info-featured-tintuc">
@@ -109,7 +109,7 @@ get_header();
 
                 </main><!-- #main -->
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 p-0">
                 <?php get_sidebar(); ?>
             </div>
         </div>
