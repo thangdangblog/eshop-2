@@ -48,3 +48,38 @@ if ( ! function_exists( 'woocommerce_template_loop_product_thumbnail_custom' ) )
         echo "</div>";
     }
 }
+
+
+if (!function_exists('search_by_variable')) :
+    /**
+     * Display search by variable
+     */
+    add_action('woocommerce_before_shop_loop','search_by_variable',8);
+    function search_by_variable()
+    {
+        wc_get_template( 'loop/searchby.php' );
+    }
+endif;
+
+if (!function_exists('sort_by')) :
+    /**
+     * Display search by variable
+     */
+    add_action('woocommerce_before_shop_loop','sort_by',9);
+    function sort_by()
+    {
+        wc_get_template( 'loop/sortby.php' );
+    }
+endif;
+
+
+if (!function_exists('show_category_child')) :
+    /**
+     * Display search by variable
+     */
+    add_action('woocommerce_after_main_content','show_category_child',7);
+    function show_category_child()
+    {
+        wc_get_template( 'loop/categories-child.php' );
+    }
+endif;

@@ -18,14 +18,22 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header( 'shop' );
+
+/**
+ * Hook: eshop_before_container_wrap.
+ *
+ * @hooked woocommerce_breadcrumb - 10
+ */
+do_action( 'eshop_before_container_wrap' );
 ?>
+
 <div class="container archive-product">
 <?php
 /**
  * Hook: woocommerce_before_main_content.
  *
  * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
- * @hooked woocommerce_breadcrumb - 20
+ * @hooked woocommerce_breadcrumb - 20 - removed
  * @hooked WC_Structured_Data::generate_website_data() - 30
  */
 do_action( 'woocommerce_before_main_content' );
@@ -40,9 +48,9 @@ do_action( 'woocommerce_before_main_content' );
 	/**
 	 * Hook: woocommerce_archive_description.
 	 *
-	 * @hooked woocommerce_taxonomy_archive_description - 10
-	 * @hooked woocommerce_product_archive_description - 10
-	 */
+	 * @hooked woocommerce_taxonomy_archive_description - 10 -removed
+	 * @hooked woocommerce_product_archive_description - 10 -removed
+     */
 	do_action( 'woocommerce_archive_description' );
 	?>
 </header>
@@ -53,8 +61,9 @@ if ( woocommerce_product_loop() ) {
 	 * Hook: woocommerce_before_shop_loop.
 	 *
 	 * @hooked woocommerce_output_all_notices - 10
-	 * @hooked woocommerce_result_count - 20
-	 * @hooked woocommerce_catalog_ordering - 30
+	 * @hooked woocommerce_result_count - 20  - removed - custom-options.php
+	 * @hooked woocommerce_catalog_ordering - 30 - removed - custom-options.php
+	 * @hooked search_by_variable - 9
 	 */
 	do_action( 'woocommerce_before_shop_loop' );
 
@@ -93,6 +102,9 @@ if ( woocommerce_product_loop() ) {
 /**
  * Hook: woocommerce_after_main_content.
  *
+ * @hooked show_category_child - 7
+ * @hooked woocommerce_product_archive_description - 8
+ * @hooked woocommerce_taxonomy_archive_description - 8
  * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
  */
 do_action( 'woocommerce_after_main_content' );

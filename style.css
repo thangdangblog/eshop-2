@@ -1006,6 +1006,7 @@ footer#colophon h3 {
 footer#colophon {
 	font-size: 14px;
 	padding: 25px !important;
+	border-top: 2px solid #ff2626;
 }
 
 footer#colophon ul {
@@ -1151,4 +1152,9 @@ div#primary-sidebar-5 ul li img {
 	}
 }
 
+.wrap-breadcrumb {
+	border-bottom: 1px solid #f4f4f4;
+	padding: 9px;
+}
 
+.wrap-breadcrumb nav {margin: 0 !important;}
