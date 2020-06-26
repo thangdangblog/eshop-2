@@ -1158,3 +1158,11 @@ div#primary-sidebar-5 ul li img {
 }
 
 .wrap-breadcrumb nav {margin: 0 !important;}
+
+.breadcrumb{
+	background: white !important;
+}
+
+input,textarea{
+	outline: none;
+}

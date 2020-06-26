@@ -164,9 +164,13 @@ function eshop_mobile_scripts() {
         wp_enqueue_style( 'eshop-category-style', get_template_directory_uri().'/assets/css/category.css', array(), _S_VERSION );
     }
 
+    if(is_page_template('templates/contact.php')){
+        wp_enqueue_style( 'eshop-contact-style', get_template_directory_uri().'/assets/css/contact.css', array(), _S_VERSION );
+    }
+
 	if(is_product_category()){
         wp_enqueue_style( 'eshop-category-style', get_template_directory_uri().'/assets/css/categories-product.css', array(), _S_VERSION );
-        wp_enqueue_script( 'eshop-category-js', get_template_directory_uri() . '/assets/js/category.js', array(), _S_VERSION, true );
+        wp_enqueue_script( 'eshop-category-js', get_template_directory_uri() . '/assets/js/categor.js', array(), _S_VERSION, true );
 	}
 
 	wp_enqueue_script( 'eshop-mobile-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
