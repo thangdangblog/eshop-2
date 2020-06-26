@@ -79,7 +79,7 @@
     z-index: 9999;
     right: 10px;
     border-radius: 4px;
-     display: none;
+    display: none;
 }
 .owl-dots{
     display: none;
@@ -781,6 +781,7 @@ p.product-one-title {
 
 .show-tin-tuc article {
     transition: 0.4s;
+    cursor: pointer;
 }
 
 a:hover{

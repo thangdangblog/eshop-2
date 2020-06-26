@@ -1166,3 +1166,7 @@ div#primary-sidebar-5 ul li img {
 input,textarea{
 	outline: none;
 }
+
+a,a:visited,a:link{
+	color: #333;
+}
