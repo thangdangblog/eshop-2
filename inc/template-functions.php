@@ -36,3 +36,15 @@ function eshop_mobile_pingback_header() {
 }
 add_action( 'wp_head', 'eshop_mobile_pingback_header' );
 
+if ( ! function_exists( 'woocommerce_template_loop_product_thumbnail_custom' ) ) {
+
+    /**
+     * Get the product thumbnail for the loop.
+     */
+    function woocommerce_template_loop_product_thumbnail_custom() {
+        echo "<div class='thumbnail-product'>";
+        do_action( 'woocommerce_inner_thumbnail' );
+        echo woocommerce_get_product_thumbnail(); // WPCS: XSS ok.
+        echo "</div>";
+    }
+}

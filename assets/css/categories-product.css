@@ -1,0 +1,81 @@
+body{
+    background: white !important;
+}
+.archive-product ul.products li {
+    margin: 0 !important;
+    border-bottom: 1px solid #d4d4d4;
+    border-right: 1px solid #d4d4d4;
+}
+
+.archive-product ul.products {
+    border-top: 1px solid #d4d4d4;
+    border-left: 1px solid #d4d4d4;
+}
+
+.archive-product .row-main {
+    border-left: 1px solid gainsboro;
+    border-top: 1px solid gainsboro;
+}
+
+.archive-product .row-main > div {
+    border-right: 1px solid gainsboro;
+    border-bottom: 1px solid gainsboro;
+}
+
+.archive-product h2.woocommerce-loop-product__title {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+    color: #333;
+}
+
+.archive-product h2.woocommerce-loop-product__title:hover {color: #f33;}
+
+.archive-product .price {
+    display: block;
+    text-align: center;
+    margin-bottom: 5px;
+    color: #f33;
+    font-weight: bold;
+}
+
+.archive-product .price ins {
+    color: #f33;
+    background: transparent;
+    font-weight: bold;
+}
+
+.archive-product .price del {
+    font-size: 11px;
+    color: #333;
+    font-weight: normal;
+}
+
+.one-product-item {
+    padding: 15px;
+}
+
+.one-product-item:hover {box-shadow: 1px 1px 20px 1px #8080804f;}
+
+.woocommerce span.onsale {
+    background-image: linear-gradient(-90deg, #ec1f1f 0%, #ff9c00 100%);
+    min-height: unset;
+    min-width: unset;
+    font-weight: 700;
+    position: absolute;
+    text-align: center;
+    line-height: unset;
+    top: unset;
+    left: 5px;
+    bottom: 10px;
+    margin: 0;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 11px;
+    z-index: 9;
+    padding: 3px 10px;
+}
+
+.thumbnail-product {
+    position: relative;
+}

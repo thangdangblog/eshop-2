@@ -1070,6 +1070,15 @@ div#primary-sidebar-5 ul li img {
 	width: 60px;
 }
 
+.breadcrumb {
+	background: white;
+	border-bottom: 1px solid #e2e2e2;
+}
+
+.row-main {
+	clear: both;
+}
+
 @media (min-width: 576px) {
 	.w-sm-40 {
 		-webkit-box-flex: 0;

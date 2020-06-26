@@ -798,28 +798,20 @@ ul.more-infor-product-one {
 p.product-one-title {
     color: #5d5d5d;
 }
-
-.menu-menu-location-2-container {
-    float: right;
-}
-
-.menu-menu-location-2-container ul {
-    padding: 0;
-    margin: 0;
-}
-
-.menu-menu-location-2-container ul li {
+.title-product-category ul {
     list-style: none;
+}
+
+.title-product-category ul li {
     display: inline-block;
 }
 
-.menu-menu-location-2-container ul li a {
-    text-transform: initial;
-    font-weight: normal;
-    color: #0564b9;
-    padding: 0 11px;
+.title-product-category .menu {
+    float: right;
 }
 
-.menu-item a:hover {
-    color: #f33;
+.title-product-category ul li a {
+    text-transform: none;
+    padding: 0px 4px;
+    color: #007bff;
 }

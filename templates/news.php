@@ -13,11 +13,6 @@
 
 get_header();
 ?>
-    <div class="breadcrumb">
-        <div class="container">
-            <div class="home"><a href="<?php echo home_url(); ?>">Trang chủ</a> > <strong>Tin tức</strong></div>
-        </div>
-    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-9">

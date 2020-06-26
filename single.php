@@ -9,7 +9,11 @@
 
 get_header();
 ?>
-
+    <div class="breadcrumb">
+        <div class="container">
+            <div class="home"><a href="<?php echo home_url(); ?>">Trang chủ</a> > <strong>Tin tức</strong></div>
+        </div>
+    </div>
 	<main id="primary" class="site-main">
 
 		<?php
