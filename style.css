@@ -1163,10 +1163,14 @@ div#primary-sidebar-5 ul li img {
 	background: white !important;
 }
 
-input,textarea{
-	outline: none;
+input,textarea,button{
+	outline: none !important;
 }
 
 a,a:visited,a:link{
 	color: #333;
+}
+
+ins {
+	background: transparent;
 }
