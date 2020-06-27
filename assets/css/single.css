@@ -140,3 +140,7 @@ button.single_add_to_cart_button {
 .quantity input {
     -moz-appearance: textfield;
 }
+
+span.onsale {
+    display: none !important;
+}
