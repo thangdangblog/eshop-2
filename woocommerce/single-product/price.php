@@ -22,4 +22,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 global $product;
 
 ?>
-<p class="<?php echo esc_attr( apply_filters( 'woocommerce_product_price_class', 'price' ) ); ?>"><?php echo $product->get_price_html(); ?></p>
+<p class="<?php echo esc_attr( apply_filters( 'woocommerce_product_price_class', 'price' ) ); ?>">
+    <?php if($product->is_on_sale()): ?>
+        <span class="sale-price">
+            <?php echo wc_price($product->get_sale_price()); ?>
+        </span>
+        <div class="regular-price"><span>Giá thị trường: </span> <span class="giathitruong"><?php echo wc_price($product->get_regular_price()); ?></span> <span class="price-save">Tiết kiệm: <span class=""><?php echo wc_price($product->get_regular_price() - $product->get_sale_price()) ?></span></span></div>
+    <?php else: ?>
+        <span class="regular-price-not-sale">
+            <?php echo wc_price($product->get_regular_price()); ?>
+        </span>
+    <?php endif; ?>
+
+</p>

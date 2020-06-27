@@ -1,0 +1,142 @@
+body{
+    background: white !important;
+    font-size: 14px;
+}
+
+.header-single .title-single h1{
+    color: #212121;
+    font-size: 30px;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.woocommerce .star-rating span::before {
+    content: "\53\53\53\53\53";
+    top: 0;
+    position: absolute;
+    left: 0;
+    color: rgb(255, 190, 0);
+}
+
+.woocommerce-product-rating {
+    float: left;
+}
+
+.product-code {
+    float: left;
+}
+
+.woocommerce-product-rating {
+    line-height: 24px !important;
+}
+
+.star-rating {
+    margin: 4px !important;
+}
+
+.header-single {
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.woocommerce div.product .woocommerce-product-rating {
+    margin-bottom: 10px;
+}
+
+.price .sale-price {
+    font-size: 32px;
+    color: #f30;
+    vertical-align: middle;
+    margin-right: 0px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+span.giathitruong {
+    text-decoration: line-through;
+    font-weight: 500;
+    color: #696969;
+}
+
+.regular-price span {
+    font-size: 14px;
+}
+
+span.price-save {
+    margin-left: 20px;
+    color: #73a91d;
+}
+
+span.price-save span {
+    font-weight: 500;
+}
+
+span.instock-order {
+    color: #73a91d;
+}
+
+.status-order {
+    margin-bottom: 11px;
+}
+
+.quantity {
+    width: 50%;
+    margin: 0 !important;
+    border-top-right-radius: 0;
+    position: relative;
+    user-select: none;
+}
+
+.quantity input {
+    width: 100% !important;
+    height: 50px;
+    border-top-right-radius: unset !important;
+    border-bottom-right-radius: unset !important;
+}
+
+button.single_add_to_cart_button {
+    height: 50px;
+    border-top-left-radius: unset !important;
+    border-bottom-left-radius: unset !important;
+    width: 50%;
+    height: 50px;
+    background: #f30 !important;
+}
+
+.plus-value {
+    position: absolute;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    top: 0;
+    height: 100%;
+    font-size: 20px;
+    color: gray;
+    right: 0;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.minus-value {
+    position: absolute;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    top: 0;
+    height: 100%;
+    font-size: 20px;
+    color: gray;
+    left: 0;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.quantity input::-webkit-outer-spin-button,
+.quantity input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.quantity input {
+    -moz-appearance: textfield;
+}

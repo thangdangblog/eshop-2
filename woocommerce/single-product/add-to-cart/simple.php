@@ -23,7 +23,18 @@ if ( ! $product->is_purchasable() ) {
 	return;
 }
 
-echo wc_get_stock_html( $product ); // WPCS: XSS ok.
+?>
+<div class="status-order">
+    Tình trạng:
+    <?php if($product->stock_status == "onbackorder"): ?>
+        <span class="onbackorder">Đang chời hàng</span>
+    <?php elseif($product->stock_status == "outofstock"): ?>
+        <span class="outstock-order">Hết hàng</span>
+    <?php else: ?>
+        <span class="instock-order">Còn hàng</span>
+    <?php endif; ?>
+</div>
+<?php
 
 if ( $product->is_in_stock() ) : ?>
 

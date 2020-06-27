@@ -83,3 +83,14 @@ if (!function_exists('show_category_child')) :
         wc_get_template( 'loop/categories-child.php' );
     }
 endif;
+
+if (!function_exists('show_header_single_product')) :
+    /**
+     * Display search by variable
+     */
+    add_action('woocommerce_before_single_product_summary','show_header_single_product',5);
+    function show_header_single_product()
+    {
+        wc_get_template( 'single-product/head-single.php' );
+    }
+endif;

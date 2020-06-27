@@ -18,6 +18,17 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
+global $product;
 ?>
-<p class="stock <?php echo esc_attr( $class ); ?>"><?php echo wp_kses_post( $availability ); ?></p>
+<div class="status-order">
+    Tình trạng:
+    <?php if($product->stock_status == "onbackorder"): ?>
+        <span class="onbackorder">Đang chời hàng</span>
+    <?php elseif($product->stock_status == "outofstock"): ?>
+        <span class="outstock-order">Hết hàng</span>
+    <?php else: ?>
+        <span class="instock-order">Còn hàng</span>
+    <?php endif; ?>
+</div>
+
+<!--<p class="stock --><?php //echo esc_attr( $class ); ?><!--">--><?php //echo wp_kses_post( $availability ); ?><!--</p>-->

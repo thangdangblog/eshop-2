@@ -125,7 +125,7 @@ get_header();
                                             </div>
                                         <?php endif; ?>
                                     </div>
-                                    <p><?php echo the_title(); ?></p>
+                                    <p><?php echo substr_text(20,get_the_title(get_the_ID())); ?></p>
                                     <p><?php echo $product->get_price_html(get_the_ID()); ?></p>
                                 </div>
                             </a>
