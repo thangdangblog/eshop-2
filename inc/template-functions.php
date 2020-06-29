@@ -88,9 +88,31 @@ if (!function_exists('show_header_single_product')) :
     /**
      * Display search by variable
      */
-    add_action('woocommerce_before_single_product_summary','show_header_single_product',5);
+    add_action('eshop_header_single_product_summary','show_header_single_product',5);
     function show_header_single_product()
     {
         wc_get_template( 'single-product/head-single.php' );
+    }
+endif;
+
+if (!function_exists('show_widget_after_product_single_product')) :
+    /**
+     * Display search by variable
+     */
+    add_action('woocommerce_single_product_summary','show_widget_after_product_single_product',90);
+    function show_widget_after_product_single_product()
+    {
+        wc_get_template( 'single-product/widget_after_product_meta.php' );
+    }
+endif;
+
+if (!function_exists('show_widget_right_product_single_product')) :
+    /**
+     * Display search by variable
+     */
+    add_action('eshop_right_single_product_summary','show_widget_right_product_single_product',90);
+    function show_widget_right_product_single_product()
+    {
+        wc_get_template( 'single-product/widget_right_product_meta_data.php' );
     }
 endif;

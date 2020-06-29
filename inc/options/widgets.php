@@ -1,4 +1,39 @@
 <?php
+
+/**
+ * Register the new location widget.
+ * Name: After Product meta
+ * @see 'widgets_init'
+ */
+add_action( 'widgets_init', 'e_shop_register_widget_after_product_meta' );
+function e_shop_register_widget_after_product_meta() {
+    register_sidebar( array(
+        'name'          => 'After Product',
+        'id'            => 'after_product_meta',
+        'before_widget' => '<div>',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="after_product_meta"><span>',
+        'after_title'   => '</span></h3>',
+    ) );
+}
+
+/**
+ * Register the new location widget.
+ * Name: After Product meta
+ * @see 'widgets_init'
+ */
+add_action( 'widgets_init', 'e_shop_register_widget_right_product_meta' );
+function e_shop_register_widget_right_product_meta() {
+    register_sidebar( array(
+        'name'          => 'Right Product',
+        'id'            => 'right_product_meta',
+        'before_widget' => '<div>',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="right_product_meta"><span>',
+        'after_title'   => '</span></h3>',
+    ) );
+}
+
 /**
  * Register the new location widget.
  * Name: Footer 1
