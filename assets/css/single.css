@@ -198,6 +198,7 @@ ul#carousel-custom-dots {
     padding: 0;
     margin: 0;
     text-align: center;
+    margin-top: 20px;
 }
 
 ul#carousel-custom-dots li:hover {
@@ -330,4 +331,117 @@ p.chat-ho-tro {
 
 .textwidget.custom-html-widget img {
     width: 100%;
+}
+
+.content-more-phone ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    font-size: 14px;
+}
+
+.content-more-phone ul .label {
+    color: #787878;
+}
+
+.content-more-phone .label {
+    width: 45%;
+    display: inline-block;
+}
+
+.content-more-phone span:nth-child(2) {
+    width: 55%;
+    float: right;
+}
+
+.content-more-phone li {
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.content-more-phone span {font-size: 13px;}
+
+h3.title-more-phone {
+    font-size: 14px;
+    border-bottom: 1px solid #d3ced2;
+    height: 20.8px;
+}
+
+.product-by-category {
+    border-left: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+    padding: 20px;
+    padding-bottom: 0;
+}
+
+.feature-product-by-category {
+    position: relative;
+}
+
+p.title-of-product-category {
+    text-align: center;
+    margin: 0;
+}
+
+p.price-product-category {
+    text-align: center;
+}
+
+.product-by-category:hover {
+    box-shadow: 1px 1px 20px 1px #bfbfbf73;
+}
+
+.product-by-category:hover a {
+    color: #f30 !important;
+}
+
+ul.more-infor-product-one {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+ul.more-infor-product-one li:after {
+    font-family: Font Awesome\ 5 Free;
+    content: "\f058";
+    position: absolute;
+    left: -15px;
+    top: 2px;
+    font-size: 11px;
+}
+
+ul.more-infor-product-one li {
+    position: relative;
+    font-size: 13px;
+}
+
+ul.more-infor-product-one li .label {
+    font-weight: 700;
+}
+
+p.product-one-title {
+    margin: 0;
+}
+
+
+h2.woocommerce-loop-product__title {
+    font-size: 14px;
+    text-align: center;
+}
+
+span.woocommerce-Price-amount.amount {
+    font-size: 14px;
+}
+
+.one-product-item {
+    text-align: center;
+}
+
+section.related.products .row-main {
+    border: 1px solid #f4f4f4;
+    overflow: hidden;
+}
+
+.one-product-item:hover {
+    box-shadow: 0px -3px 8px 1px #9f9f9f82;
 }

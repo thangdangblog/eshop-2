@@ -230,6 +230,11 @@ require get_template_directory() . '/inc/options/require-plugins.php';
 require get_template_directory() . '/inc/options/custom-options.php';
 
 /**
+ * Require metabox product
+ */
+require get_template_directory() . '/inc/metabox_product.php';
+
+/**
  * Require file registes widgets
  */
 require get_template_directory() . '/inc/options/widgets.php';
