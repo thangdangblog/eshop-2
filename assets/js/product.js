@@ -28,4 +28,38 @@ jQuery( document ).ready(function($) {
         owl.trigger('to.owl.carousel', [$(this).index(), 300]);
         $(this).addClass("active-carosel");
     });
+
+
+    // Carousel related
+    $(".related-carosel").owlCarousel({
+        items: 5,
+        dots: true,
+        loop:true
+    });
 })
+
+
+class Product{
+
+
+    constructor(){
+
+    }
+
+    /**
+     * Init Event of Product Page
+     */
+
+    initEvents(){
+        jQuery(".title-single").click(this.alertTitle());
+    }
+
+    alertTitle() {
+        alert("Hello World");
+    }
+}
+
+jQuery( document ).ready(function($) {
+    var product = new Product();
+    product.initEvents();
+});

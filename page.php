@@ -14,8 +14,6 @@
 
 get_header();
 
-var_dump(is_page());
-
 ?>
     <div class="breadcrumb">
         <div class="container">
@@ -42,5 +40,7 @@ var_dump(is_page());
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
+if(!is_cart()){
+    get_sidebar();
+}
 get_footer();

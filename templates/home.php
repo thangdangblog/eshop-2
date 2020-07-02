@@ -350,7 +350,7 @@ get_header();
                         while ($post_loop->have_posts()) :
                             $post_loop->the_post();
 
-                            get_template_part('template-parts/content', get_post_type());
+                            get_template_part('template-parts/content', 'home');
 
                         endwhile;
 

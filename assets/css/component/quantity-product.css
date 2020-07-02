@@ -1,0 +1,61 @@
+.quantity {
+    width: 50%;
+    margin: 0 !important;
+    border-top-right-radius: 0;
+    position: relative;
+    user-select: none;
+}
+
+.quantity input {
+    width: 100% !important;
+    height: 50px;
+    border-top-right-radius: unset !important;
+    border-bottom-right-radius: unset !important;
+}
+
+button.single_add_to_cart_button {
+    height: 50px;
+    border-top-left-radius: unset !important;
+    border-bottom-left-radius: unset !important;
+    width: 50%;
+    height: 50px;
+    background: #f30 !important;
+}
+
+.plus-value {
+    position: absolute;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    top: 0;
+    height: 100%;
+    font-size: 20px;
+    color: gray;
+    right: 0;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.minus-value {
+    position: absolute;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    top: 0;
+    height: 100%;
+    font-size: 20px;
+    color: gray;
+    left: 0;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.quantity input::-webkit-outer-spin-button,
+.quantity input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.quantity input {
+    -moz-appearance: textfield;
+}
