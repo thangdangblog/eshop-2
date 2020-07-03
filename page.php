@@ -15,32 +15,49 @@
 get_header();
 
 ?>
+
     <div class="breadcrumb">
         <div class="container">
             <div class="home"><a href="<?php echo home_url(); ?>">Trang chủ</a> > <strong>Tin tức</strong></div>
         </div>
     </div>
-	<main id="primary" class="site-main">
+    <div class="container">
+    <div class="row">
+        <?php if (is_cart()): ?>
+        <div class="col-md-12">
+            <?php else: ?>
+            <div class="col-md-8">
+                <?php endif; ?>
+                <main id="primary" class="site-main">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+                    <?php
+                    while (have_posts()) :
+                        the_post();
 
 
-			get_template_part( 'template-parts/content', 'page' );
+                        get_template_part('template-parts/content', 'page');
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+                        // If comments are open or we have at least one comment, load up the comment template.
+                        if (comments_open() || get_comments_number()) :
+                            comments_template();
+                        endif;
 
-		endwhile; // End of the loop.
-		?>
+                    endwhile; // End of the loop.
+                    ?>
 
-	</main><!-- #main -->
+                </main><!-- #main -->
+            </div>
+            <?php
+            if (!is_cart()) {
+                echo "<div class=\"col-md-4\">";
+                get_sidebar();
+                echo "</div>";
+            }
+            ?>
+
+        </div>
+    </div>
 
 <?php
-if(!is_cart()){
-    get_sidebar();
-}
+
 get_footer();

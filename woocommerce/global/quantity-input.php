@@ -44,8 +44,8 @@ if ( $max_value && $min_value === $max_value ) {
 			placeholder="<?php echo esc_attr( $placeholder ); ?>"
 			inputmode="<?php echo esc_attr( $inputmode ); ?>" />
 		<?php do_action( 'woocommerce_after_quantity_input_field' ); ?>
-        <div class="plus-value">+</div>
-        <div class="minus-value">-</div>
+        <div data-id="<?php echo "#".esc_attr( $input_id ); ?>" class="plus-value">+</div>
+        <div data-id="<?php echo "#".esc_attr( $input_id ); ?>" class="minus-value">-</div>
 	</div>
 	<?php
 }

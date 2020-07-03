@@ -194,21 +194,6 @@ body {
     margin-top: 60px !important;
 }
 
-.archive-product .row-main > div {
-    border-right: 1px solid gainsboro;
-    border-bottom: 1px solid gainsboro;
-}
-
-.archive-product h2.woocommerce-loop-product__title {
-    font-size: 14px;
-    text-align: center;
-    margin-top: 10px;
-    color: #333;
-}
-
-.archive-product h2.woocommerce-loop-product__title:hover {
-    color: #f33;
-}
 
 .archive-product .price {
     display: block;
@@ -230,13 +215,6 @@ body {
     font-weight: normal;
 }
 
-.one-product-item {
-    padding: 15px;
-}
-
-.one-product-item:hover {
-    box-shadow: 1px 1px 20px 1px #8080804f;
-}
 
 .woocommerce span.onsale {
     background-image: linear-gradient(-90deg, #ec1f1f 0%, #ff9c00 100%);

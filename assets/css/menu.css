@@ -45,6 +45,7 @@ a{
     font-size: 22px;
     color: #f30;
     z-index: 10;
+    cursor: pointer;
 }
 
 .eshop-header::after {
@@ -134,4 +135,8 @@ ul#primary-menu li:hover .sub-menu{
 
 .right-featured .more-info {
     color: #a3a3a3;
+}
+
+input#searchsubmit {
+    display: none;
 }

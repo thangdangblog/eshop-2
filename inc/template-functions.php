@@ -134,3 +134,47 @@ if (!function_exists('eshop_template_loop_product_title')) :
     }
 endif;
 
+add_filter( 'comment_form_fields', 'eshop_comment_fields_custom' );
+function eshop_comment_fields_custom( $fields ) {
+    unset( $fields['url'] );
+    return $fields;
+}
+
+add_filter( 'get_product_search_form' , 'eshp_custom_product_searchform' );
+
+/**
+ * Filter WooCommerce  Search Field
+ *
+ */
+function eshp_custom_product_searchform( $form ) {
+
+    $form = '<form role="search" method="get" id="searchform" action="' . esc_url( home_url( '/'  ) ) . '">
+                        <div>
+                                <label class="screen-reader-text" for="s">' . __( 'Search for:', 'woocommerce' ) . '</label>
+                                <input type="text" value="' . get_search_query() . '" name="s" id="search" placeholder="' . __( 'Tìm kiếm...', 'woocommerce' ) . '" />
+                                <input type="submit" id="searchsubmit" value="'. esc_attr__( 'Search', 'woocommerce' ) .'" />
+                                <input type="hidden" name="post_type" value="product" />
+                                <i class="fas fa-search"></i>
+                        </div>
+                </form>';
+
+    return $form;
+}
+
+function custom_mini_cart() {
+?>
+    <div class="cart-all-page">
+        <div class="cart-all-page-inline"></div>
+        <div class="count-cart">
+            <?php echo WC()->cart->get_cart_contents_count(); ?>
+        </div>
+        <div class="circle"></div>
+        <i class="fas fa-shopping-cart"></i>
+        <div class="list-cart-product">
+            <?php woocommerce_mini_cart(); ?>
+        </div>
+    </div>
+<?php
+//    woocommerce_mini_cart();
+}
+add_shortcode( 'custom-techno-mini-cart', 'custom_mini_cart' );

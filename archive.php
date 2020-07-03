@@ -1,4 +1,8 @@
 <?php
+//Template Name: News Template
+?>
+
+<?php
 /**
  * The template for displaying archive pages
  *
@@ -9,43 +13,100 @@
 
 get_header();
 ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <main id="primary" class="site-main">
+                    <?php
+                    $args_post = array(
+                        'post_type' => 'post',
+                        'posts_per_page' => 5,
+                    );
 
-    <main id="primary" class="site-main">
+                    $post_loop = new WP_Query($args_post);
+                    ?>
 
-        <?php if ( have_posts() ) : ?>
+                    <?php if ($post_loop->have_posts()) :
+                    $i = 0; ?>
+                    <div class="container">
+                        <div class="row">
+                            <?php while ($post_loop->have_posts()) :$post_loop->the_post(); ?>
 
-            <header class="page-header">
-                <?php
-                the_archive_title( '<h1 class="page-title">', '</h1>' );
-                the_archive_description( '<div class="archive-description">', '</div>' );
-                ?>
-            </header><!-- .page-header -->
+                                <?php if ($i == 0): ?>
 
-            <?php
-            /* Start the Loop */
-            while ( have_posts() ) :
-                the_post();
+                                    <div style="padding-left: 5px;padding-right: 5px" class="col-md-12">
+                                        <div class="featured-tintuc">
+                                            <?php eshop_mobile_post_thumbnail(); ?>
+                                            <div class="more-info-featured-tintuc">
+                                                <a href="<?php the_permalink() ?>"><?php the_title('<h2 class="entry-title">', '</h2>'); ?></a>
+                                                <?php eshop_mobile_posted_on(); ?>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                /*
-                 * Include the Post-Type-specific template for the content.
-                 * If you want to override this in a child theme, then include a file
-                 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-                 */
-                get_template_part( 'template-parts/content', get_post_type() );
+                                <?php else: ?>
 
-            endwhile;
+                                    <div style="padding: 5px" class="col-md-3">
+                                        <div class="post-item">
+                                            <?php eshop_mobile_post_thumbnail(); ?>
+                                            <div class="more-info-post">
+                                                <a href="<?php the_permalink() ?>"><h2
+                                                            class="entry-title"><?php echo substr_text(90, get_the_title($post_loop->ID)) ?></h2>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
 
-            the_posts_navigation();
+                                <?php endif;
+                                $i++; ?>
 
-        else :
+                            <?php endwhile; ?>
+                            <?php wp_reset_postdata(); ?>
+                        </div>
 
-            get_template_part( 'template-parts/content', 'none' );
+                        <?php else : ?>
 
-        endif;
-        ?>
+                            <?php get_template_part('template-parts/content', 'none'); ?>
 
-    </main><!-- #main -->
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="container p-0">
+                        <div class="header-tintuc"><h2>Tin tức mới nhất</h2></div>
+                        <?php
+
+
+
+                        ?>
+                        <?php if (have_posts()) ?>
+                        <div class="content-post">
+                            <?php while(have_posts()): the_post() ?>
+                                <div class="row mt-4">
+                                    <div class="col-md-4">
+                                        <?php eshop_mobile_post_thumbnail(); ?>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="more-infor-item">
+                                            <a href="<?php the_permalink() ?>"><?php the_title('<h2 class="entry-title">', '</h2>'); ?></a>
+                                            <div class="more-post-time"><?php eshop_mobile_posted_by() ?> <?php eshop_mobile_posted_on(); ?></div>
+                                            <p class="item-blog-sumary"><?php echo substr_text(200,get_the_excerpt($post_loop->ID)); ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endwhile; ?>
+                            <?php e_shop_pagination(); ?>
+                        </div>
+                    </div>
+
+                </main><!-- #main -->
+            </div>
+            <div class="col-md-3 p-0">
+                <?php get_sidebar(); ?>
+            </div>
+        </div>
+    </div>
 
 <?php
-get_sidebar();
+
 get_footer();
+

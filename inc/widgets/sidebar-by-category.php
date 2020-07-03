@@ -95,7 +95,7 @@ class SidebarByCategory extends WP_Widget
                 the_post_thumbnail();
                 echo "</div>";
                 echo "</div>";
-                echo "<div class='col-md-8 p-0'>";
+                echo "<div class='col-md-8 pl-0'>";
                 echo "<div class='title-post-side'><a href='".get_the_permalink($loopPost->ID)."'>".substr_text(60,get_the_title($loopPost->ID))."</a></div>";
                 echo "</div>";
                 echo "</div>";

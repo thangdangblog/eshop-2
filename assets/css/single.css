@@ -371,7 +371,7 @@ h2.woocommerce-loop-product__title {
     font-size: 32px;
 }
 
-.one-product-item {
+.related.products .one-product-item {
     text-align: center;
     padding: 20px;
     margin: 0px 5px;

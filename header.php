@@ -35,8 +35,8 @@
                     <div class="col-md-3">
                         <div class="search-menu">
 
-                            <input type="text" id="search">
-                            <i class="fas fa-search"></i>
+                            <?php get_product_search_form(); ?>
+
                         </div>
                     </div>
                     <div class="col-md-7">
@@ -56,4 +56,5 @@
             </div>
         </div>
 	</header><!-- #masthead -->
+    <?php do_shortcode("[custom-techno-mini-cart]") ?>
 

@@ -47,6 +47,7 @@ body{
     position: relative;
     border-radius: 2px;
     background-color: #f30;
+    height: 44px;
 }
 
 .post-item img {

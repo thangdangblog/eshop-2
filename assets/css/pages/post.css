@@ -1,3 +1,133 @@
 body{
     background: white !important;
 }
+
+header.entry-header h1 a {
+    font-weight: 500;
+    font-size: 22px;
+    padding: 0px 0 10px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+header.entry-header h1 {
+    line-height: 20px;
+}
+
+.entry-meta {
+    font-size: 12px;
+    color: #b2b2b2;
+    margin: 8px 0;
+}
+
+.entry-meta a {
+    font-weight: 500;
+    color: #b2b2b2;
+}
+
+.related-post ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.related-post {
+    margin-top: 15px;
+    background: #dbedf9;
+    border: 1px solid #c7e4f4;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.related-post {
+    margin-top: 15px;
+    background: #dbedf9;
+    border: 1px solid #c7e4f4;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.related-post li a {
+    color: #167ac6;
+    font-size: 14px;
+}
+
+.related-post li i {
+    font-weight: 600;
+    color: #167ac6;
+}
+
+.related-post li a:hover {
+    color: #3a3a3a;
+}
+
+p.comment-form-author {
+    width: 49%;
+    margin: 0;
+    display: inline-block;
+    float: left;
+}
+
+p.comment-form-email {
+    display: inline-block;
+    width: 49%;
+    margin: 0;
+    float: right;
+}
+
+.comment-form-author label, .comment-form-email label {
+    display: block;
+}
+
+.comment-form-author input, .comment-form-email input {
+    width: 100%;
+}
+
+p.comment-form-cookies-consent {
+    clear: both;
+}
+
+p.comment-form-comment textarea {
+    height: 135px;
+}
+
+span.required {
+    color: red;
+}
+
+div#comments #submit {
+    color: #fff;
+    background: #f30;
+    border-radius: 20px !important;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    cursor: pointer;
+    float: right;
+    border: unset;
+}
+
+p.form-submit {
+    overflow: hidden;
+}
+
+div#comments #submit:hover {
+    background: yellow;
+    color: #000000;
+}
+
+ol.comment-list {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+h2.comments-title {
+    color: #323c3f;
+    font-size: 16px;
+}
+
+.comment-author.vcard .fn {
+    color: red;
+}
