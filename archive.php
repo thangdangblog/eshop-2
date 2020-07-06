@@ -13,71 +13,17 @@
 
 get_header();
 ?>
+    <div class="breadcrumb">
+        <div class="container">
+            <div class="home"><a href="<?php echo home_url(); ?>">Trang chủ</a> > <strong><?php echo get_queried_object()->cat_name; ?></strong></div>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-9">
                 <main id="primary" class="site-main">
-                    <?php
-                    $args_post = array(
-                        'post_type' => 'post',
-                        'posts_per_page' => 5,
-                    );
-
-                    $post_loop = new WP_Query($args_post);
-                    ?>
-
-                    <?php if ($post_loop->have_posts()) :
-                    $i = 0; ?>
-                    <div class="container">
-                        <div class="row">
-                            <?php while ($post_loop->have_posts()) :$post_loop->the_post(); ?>
-
-                                <?php if ($i == 0): ?>
-
-                                    <div style="padding-left: 5px;padding-right: 5px" class="col-md-12">
-                                        <div class="featured-tintuc">
-                                            <?php eshop_mobile_post_thumbnail(); ?>
-                                            <div class="more-info-featured-tintuc">
-                                                <a href="<?php the_permalink() ?>"><?php the_title('<h2 class="entry-title">', '</h2>'); ?></a>
-                                                <?php eshop_mobile_posted_on(); ?>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                <?php else: ?>
-
-                                    <div style="padding: 5px" class="col-md-3">
-                                        <div class="post-item">
-                                            <?php eshop_mobile_post_thumbnail(); ?>
-                                            <div class="more-info-post">
-                                                <a href="<?php the_permalink() ?>"><h2
-                                                            class="entry-title"><?php echo substr_text(90, get_the_title($post_loop->ID)) ?></h2>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                <?php endif;
-                                $i++; ?>
-
-                            <?php endwhile; ?>
-                            <?php wp_reset_postdata(); ?>
-                        </div>
-
-                        <?php else : ?>
-
-                            <?php get_template_part('template-parts/content', 'none'); ?>
-
-                        <?php endif; ?>
-                    </div>
-
                     <div class="container p-0">
-                        <div class="header-tintuc"><h2>Tin tức mới nhất</h2></div>
-                        <?php
-
-
-
-                        ?>
+                        <div class="header-tintuc"><h2><?php echo get_the_archive_title(); ?></h2></div>
                         <?php if (have_posts()) ?>
                         <div class="content-post">
                             <?php while(have_posts()): the_post() ?>

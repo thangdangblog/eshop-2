@@ -11,6 +11,10 @@ class Common {
 
         //Sự kiện chuyển lên đầu trang
         $(".scroll-to-top").click(this.scrollToTop);
+
+        //Sự kiện cho mini cart
+        $('.cart-all-page').mouseover(this.changeBackgroundPageHover);
+        $('.cart-all-page').mouseleave(this.changeBackgroundPageOut);
     }
 
     /**
@@ -34,6 +38,20 @@ class Common {
             $(".scroll-to-top").addClass("d-none");
             $(".scroll-to-top").removeClass("d-block");
         }
+    }
+
+    /**
+     * Thay đổi background khi hover và mini-cart
+     */
+    changeBackgroundPageHover(){
+        $(".filter-mini-cart").css("display","block");
+    }
+
+    /**
+     * Thay đổi background khi out hover và mini-cart
+     */
+    changeBackgroundPageOut(){
+        $(".filter-mini-cart").css("display","none");
     }
 }
 

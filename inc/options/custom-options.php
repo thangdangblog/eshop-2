@@ -73,6 +73,32 @@ function eshop_woocommerce_breadcrumbs() {
     );
 }
 
+/**
+ * Xóa field trong checkout
+ */
+add_filter( 'woocommerce_checkout_fields' , 'custom_remove_woo_checkout_fields_eshop' );
+
+function custom_remove_woo_checkout_fields_eshop( $fields ) {
+
+    // remove billing fields
+    unset($fields['billing']['billing_company']);
+    unset($fields['billing']['billing_address_2']);
+    unset($fields['billing']['billing_city']);
+    unset($fields['billing']['billing_postcode']);
+    unset($fields['billing']['billing_country']);
+    unset($fields['billing']['billing_state']);
+
+    // remove shipping fields
+    unset($fields['shipping']['billing_company']);
+    unset($fields['shipping']['billing_address_2']);
+    unset($fields['shipping']['billing_city']);
+    unset($fields['shipping']['billing_postcode']);
+    unset($fields['shipping']['billing_country']);
+    unset($fields['shipping']['billing_state']);
+
+    return $fields;
+}
+
 
 
 ?>

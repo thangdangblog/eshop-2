@@ -1,0 +1,53 @@
+nav.woocommerce-MyAccount-navigation ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav.woocommerce-MyAccount-navigation ul li a {
+    display: block;
+    padding: 9px 8px;
+    border: 1px solid #ededed;
+    border-bottom: unset;
+}
+
+nav.woocommerce-MyAccount-navigation ul li:nth-last-child(1) a {
+    border: 1px solid #ededed;
+}
+
+.woocommerce-MyAccount-content {
+    padding: 10px;
+    border: 1px solid #ededed;
+}
+
+nav.woocommerce-MyAccount-navigation ul li.is-active a {
+    background: #2196F3;
+    color: white;
+    border: 1px solid #2196F3;
+}
+
+form.woocommerce-EditAccountForm.edit-account fieldset label {
+    display: block;
+    width: 100%;
+}
+
+form.woocommerce-EditAccountForm.edit-account fieldset input {
+    display: block;
+    width: 100%;
+}
+
+span.show-password-input{
+    top: 0 !important;
+    right: 0 !important;
+    height: 100%;
+    padding: 0px;
+    padding-right: 12px;
+    line-height: 40px;
+}
+.password-input{
+    width: 40%;
+}
+
+.woocommerce-MyAccount-content input{
+    height: 40px;
+}

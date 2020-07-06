@@ -13,17 +13,16 @@
  */
 
 get_header();
-
 ?>
 
     <div class="breadcrumb">
         <div class="container">
-            <div class="home"><a href="<?php echo home_url(); ?>">Trang chủ</a> > <strong>Tin tức</strong></div>
+            <div class="home"><a href="<?php echo home_url(); ?>">Trang chủ</a> > <strong><?php echo get_the_title() ?></strong></div>
         </div>
     </div>
     <div class="container">
     <div class="row">
-        <?php if (is_cart()): ?>
+        <?php if (is_cart() || is_checkout() || is_account_page()): ?>
         <div class="col-md-12">
             <?php else: ?>
             <div class="col-md-8">
@@ -48,7 +47,7 @@ get_header();
                 </main><!-- #main -->
             </div>
             <?php
-            if (!is_cart()) {
+            if (!is_cart() && !is_checkout() && !is_account_page() ) {
                 echo "<div class=\"col-md-4\">";
                 get_sidebar();
                 echo "</div>";

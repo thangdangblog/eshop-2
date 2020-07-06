@@ -1,0 +1,35 @@
+.woocommerce-billing-fields .form-row {
+    width: 100%;
+    display: block;
+}
+
+.woocommerce-billing-fields .form-row input {
+    height: 40px;
+}
+
+.woocommerce-billing-fields .form-row.notes {
+    width: 100%;
+    display: block;
+}
+
+.woocommerce-billing-fields .form-row.notes label {
+    display: block;
+    width: 100%;
+}
+
+.woocommerce form .form-row label {
+    display: block;
+    width: 100%;
+}
+
+.woocommerce-additional-fields textarea {
+    width: 100%;
+}
+
+.woocommerce-additional-fields .woocommerce-input-wrapper {
+    width: 100% !important;
+}
+
+.woocommerce-additional-fields textarea {
+    min-height: 150px;
+}

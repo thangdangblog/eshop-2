@@ -163,6 +163,7 @@ function eshp_custom_product_searchform( $form ) {
 
 function custom_mini_cart() {
 ?>
+    <div class="filter-mini-cart"></div>
     <div class="cart-all-page">
         <div class="cart-all-page-inline"></div>
         <div class="count-cart">
@@ -173,6 +174,7 @@ function custom_mini_cart() {
         <div class="list-cart-product">
             <?php woocommerce_mini_cart(); ?>
         </div>
+        <div class="footer-mini-cart"></div>
     </div>
 <?php
 //    woocommerce_mini_cart();

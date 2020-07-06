@@ -49,7 +49,7 @@ $col    = 1;
 <?php if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) : ?>
 	<div class="u-columns woocommerce-Addresses col2-set addresses">
 <?php endif; ?>
-
+<div class="row">
 <?php foreach ( $get_addresses as $name => $address_title ) : ?>
 	<?php
 		$address = wc_get_account_formatted_address( $name );
@@ -57,7 +57,7 @@ $col    = 1;
 		$oldcol  = $oldcol * -1;
 	?>
 
-	<div class="u-column<?php echo $col < 0 ? 1 : 2; ?> col-<?php echo $oldcol < 0 ? 1 : 2; ?> woocommerce-Address">
+	<div class="col-md-6 woocommerce-Address">
 		<header class="woocommerce-Address-title title">
 			<h3><?php echo esc_html( $address_title ); ?></h3>
 			<a href="<?php echo esc_url( wc_get_endpoint_url( 'edit-address', $name ) ); ?>" class="edit"><?php echo $address ? esc_html__( 'Edit', 'woocommerce' ) : esc_html__( 'Add', 'woocommerce' ); ?></a>
@@ -70,7 +70,7 @@ $col    = 1;
 	</div>
 
 <?php endforeach; ?>
-
+</div>
 <?php if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) : ?>
 	</div>
 	<?php
