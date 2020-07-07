@@ -2,7 +2,7 @@
     <div class="container">
         <div class="show-product-by-category">
             <div class="title-product-category">
-                Điện thoại
+                <?php echo $dataProduct['title']; ?>
                 <?php wp_nav_menu([
                     "theme_location" => "menu-2",
                     "menu_id" => "menu-location-2"

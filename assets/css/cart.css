@@ -18,3 +18,7 @@ h1.entry-title {
 input#coupon_code {
     width: 90px;
 }
+
+.wc-proceed-to-checkout a.checkout-button {
+    font-size: 15px !important;
+}

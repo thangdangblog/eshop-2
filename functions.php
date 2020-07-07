@@ -154,6 +154,10 @@ function eshop_mobile_scripts() {
 	wp_enqueue_style( 'eshop-sidebar-style', get_template_directory_uri().'/assets/css/component/sidebar.css', array(), _S_VERSION );
 	wp_style_add_data( 'eshop-mobile-style', 'rtl', 'replace' );
 
+	//Animate css
+    wp_enqueue_style( 'eshop-animate-style', get_template_directory_uri().'/assets/css/libs/animate.min.css', array(), _S_VERSION );
+
+
     wp_enqueue_script( 'eshop-header-js', get_template_directory_uri() . '/assets/js/component/header.js', array('jquery'), _S_VERSION, true );
 
 
@@ -286,7 +290,11 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-function test_function(){
+/**
+ * Khởi tạo class eshop option
+ */
 
+function initClass(){
+    $eshop_options = new EshopOption();
 }
-add_action('wp','test_function');
+add_action('init','initClass');

@@ -5,7 +5,11 @@
  */
 
 get_header();
+$eshop_options = new EshopOption();
+$sliders_home = $eshop_options->getDataHomeSlide();
+
 ?>
+
 
     <main id="primary" class="site-main">
 
@@ -14,33 +18,26 @@ get_header();
                 <div class="row">
                     <div style="padding-right: 0" class="col-md-8">
                         <div class="slide-home owl-carousel">
-                            <div>
-                                <img src="https://bizweb.dktcdn.net/100/348/133/themes/709285/assets/slider_1.jpg?1586914632171"
-                                     alt="">
-                            </div>
-                            <div>
-                                <img src="https://bizweb.dktcdn.net/100/348/133/themes/709285/assets/slider_1.jpg?1586914632171"
-                                     alt="">
-                            </div>
-                            <div>
-                                <img src="https://bizweb.dktcdn.net/100/348/133/themes/709285/assets/slider_1.jpg?1586914632171"
-                                     alt="">
-                            </div>
-                            <div>
-                                <img src="https://bizweb.dktcdn.net/100/348/133/themes/709285/assets/slider_1.jpg?1586914632171"
-                                     alt="">
-                            </div>
-                            <div>
-                                <img src="https://bizweb.dktcdn.net/100/348/133/themes/709285/assets/slider_1.jpg?1586914632171"
-                                     alt="">
-                            </div>
+                            <?php foreach ($sliders_home as $slide): ?>
+                                <?php if (!empty($slide['url'])): ?>
+                                    <div>
+                                        <a href="<?php echo $slide['url'] ?>">
+                                            <img src="<?php echo $slide['url-image'] ?>"
+                                                 alt="">
+                                        </a>
+                                    </div>
+                                <?php else: ?>
+                                    <div>
+                                        <img src="<?php echo $slide['url-image'] ?>"
+                                             alt="">
+                                    </div>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
                         </div>
                         <ul id='carousel-custom-dots' style="display: block !important;" class='owl-dots'>
-                            <li class='owl-dot'>Mua iPhone X Không lo rơi vỡ</li>
-                            <li class='owl-dot'>Mua iPhone X Không lo rơi vỡ</li>
-                            <li class='owl-dot'>Mua iPhone X Không lo rơi vỡ</li>
-                            <li class='owl-dot'>Mua iPhone X Không lo rơi vỡ</li>
-                            <li class='owl-dot'>Mua iPhone X Không lo rơi vỡ</li>
+                            <?php foreach ($sliders_home as $slide): ?>
+                                <li class='owl-dot'><?php echo $slide['title'] ?></li>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
                     <div class="col-md-4">
@@ -84,7 +81,7 @@ get_header();
                         </div>
                         <div class="banner-right-featured">
                             <a href="">
-                                <img src="https://bizweb.dktcdn.net/100/348/133/themes/709285/assets/banner_under_slider.png?1586914632171"
+                                <img src="<?php echo $eshop_options->getDataBanner() ?>"
                                      alt="">
                             </a>
                         </div>
@@ -102,6 +99,21 @@ get_header();
                 $args = array(
                     'post_type' => 'product',
                     'posts_per_page' => 10,
+                    'meta_query' => array(
+                        'relation' => 'OR',
+                        array( // Simple products type
+                            'key' => '_sale_price',
+                            'value' => 0,
+                            'compare' => '>',
+                            'type' => 'numeric'
+                        ),
+                        array( // Variable products type
+                            'key' => '_min_variation_sale_price',
+                            'value' => 0,
+                            'compare' => '>',
+                            'type' => 'numeric'
+                        )
+                    )
                 );
 
                 $deal_loop = new WP_Query($args);
@@ -125,7 +137,7 @@ get_header();
                                             </div>
                                         <?php endif; ?>
                                     </div>
-                                    <p><?php echo substr_text(20,get_the_title(get_the_ID())); ?></p>
+                                    <p><?php echo substr_text(20, get_the_title(get_the_ID())); ?></p>
                                     <p><?php echo $product->get_price_html(get_the_ID()); ?></p>
                                 </div>
                             </a>
@@ -136,187 +148,77 @@ get_header();
             </div>
         </div>
 
-        <!--Hiển thị theo chuyên mục 1-->
-        <?php
-        $args = array(
-            'post_type' => 'product',
-            'posts_per_page' => 9,
-        );
-        $product_cate = new WP_Query($args);
-        require( locate_template( 'template-parts/content-custom-1.php' ) );
 
-        ?>
+        <!--Hiển thị theo chuyên mục 1 - Location 1-->
+        <?php if ($eshop_options->isActiveProductLocationOne()): ?>
+            <?php
+            $dataProduct = $eshop_options->getDataProductLocationOne();
 
-        <!--Hiển thị theo chuyên mục 1-->
-        <?php
-        $args = array(
-            'post_type' => 'product',
-            'posts_per_page' => 9,
-        );
+            $args = array(
+                'post_type' => 'product',
+                'posts_per_page' => 9,
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'product_cat',
+                        'field' => 'id',
+                        'terms' =>$dataProduct['categories'],
+                        'include_children' => true,
+                        'operator' => 'IN'
+                    )
+                )
+            );
+            $product_cate = new WP_Query($args);
+            require(locate_template('template-parts/content-custom-1.php'));
 
-        $product_cate = new WP_Query($args);
-        ?>
-        <?php if ($product_cate->have_posts()): $i = 0; ?>
-            <div class="container">
-                <div class="show-product-by-category">
-                    <div class="title-product-category">
-                        Điện thoại
-                        <?php wp_nav_menu([
-                            "theme_location" => "menu-2",
-                            "menu_id" => "menu-location-2"
-                        ]); ?>
-                    </div>
-                    <div class="clear-fix"></div>
-                    <div class="content-product">
-                        <div class="row" style="margin: 0">
-                            <?php while ($product_cate->have_posts()):$product_cate->the_post(); ?>
-                                <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($product_cate->post->ID), 'single-post-thumbnail'); ?>
-                                <?php if ($i == 0): ?>
-                                    <div class="w-md-40 product-by-category product-by-category-one">
-                                        <a href="<?php the_permalink(); ?>">
-                                            <div class="feature-product-by-category">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <img src="<?php echo $image[0]; ?>"
-                                                             data-id="<?php echo $deal_loop->post->ID; ?>">
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p class="product-one-title"><?php echo the_title(); ?></p>
-                                                        <p class="product-one-price"><?php echo $product->get_price_html(get_the_ID()); ?></p>
-                                                        <ul class="more-infor-product-one">
-                                                            <li><span class="label">Màn hình:</span>6.4 inches, 1440 x
-                                                                3040
-                                                                pixels
-                                                            </li>
-                                                            <li><span class="label">Camera trước:</span>Camera kép</li>
-                                                            <li><span class="label">Camera sau:</span>3 camera</li>
-                                                            <li><span class="label">RAM:</span>8 GB</li>
-                                                            <li><span class="label">Bộ nhớ trong:</span>128 GB</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <?php if ($product->is_on_sale() && $product->is_type('simple')): ?>
-                                                    <div class="on-sale">
-                                                        Giảm <?php echo round($product->get_sale_price() * 100 / $product->get_regular_price()) ?>
-                                                        %
-                                                    </div>
-                                                <?php endif; ?>
-                                            </div>
-                                        </a>
-                                    </div>
-                                <?php else: ?>
-                                    <a href="<?php the_permalink(); ?>">
-                                        <div class="w-md-20 product-by-category">
-                                            <div class="feature-product-by-category">
-                                                <img src="<?php echo $image[0]; ?>"
-                                                     data-id="<?php echo $deal_loop->post->ID; ?>">
-                                                <?php if ($product->is_on_sale() && $product->is_type('simple')): ?>
-                                                    <div class="on-sale">
-                                                        Giảm <?php echo round($product->get_sale_price() * 100 / $product->get_regular_price()) ?>
-                                                        %
-                                                    </div>
-                                                <?php endif; ?>
-                                            </div>
-                                            <p class="title-of-product-category"><a href="#"><?php the_title(); ?></a>
-                                            </p>
-                                            <p class="price-product-category"><?php echo $product->get_price_html(get_the_ID()); ?></p>
-                                        </div>
-                                    </a>
-                                <?php endif; ?>
-                                <?php $i++ ?>
-                            <?php endwhile; ?>
-                            <?php wp_reset_postdata(); ?>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+            ?>
         <?php endif; ?>
 
-        <!--Hiển thị theo chuyên mục 1-->
-        <?php
-        $args = array(
-            'post_type' => 'product',
-            'posts_per_page' => 9,
-        );
+        <!--Hiển thị theo chuyên mục 2 - Location 2-->
+        <?php if ($eshop_options->isActiveProductLocationTwo()): ?>
+            <?php
+            $dataProduct = $eshop_options->getDataProductLocationTwo();
 
-        $product_cate = new WP_Query($args);
-        ?>
-        <?php if ($product_cate->have_posts()): $i = 0; ?>
-            <div class="container">
-                <div class="show-product-by-category">
-                    <div class="title-product-category">
-                        Điện thoại
-                        <?php wp_nav_menu([
-                            "theme_location" => "menu-2",
-                            "menu_id" => "menu-location-2"
-                        ]); ?>
-                    </div>
-                    <div class="clear-fix"></div>
-                    <div class="content-product">
-                        <div class="row" style="margin: 0">
-                            <?php while ($product_cate->have_posts()):$product_cate->the_post(); ?>
-                                <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($product_cate->post->ID), 'single-post-thumbnail'); ?>
-                                <?php if ($i == 0): ?>
-                                    <div class="w-md-40 product-by-category product-by-category-one">
-                                        <a href="<?php the_permalink(); ?>">
-                                            <div class="feature-product-by-category">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <img src="<?php echo $image[0]; ?>"
-                                                             data-id="<?php echo $deal_loop->post->ID; ?>">
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p class="product-one-title"><?php echo the_title(); ?></p>
-                                                        <p class="product-one-price"><?php echo $product->get_price_html(get_the_ID()); ?></p>
-                                                        <ul class="more-infor-product-one">
-                                                            <li><span class="label">Màn hình:</span>6.4 inches, 1440 x
-                                                                3040
-                                                                pixels
-                                                            </li>
-                                                            <li><span class="label">Camera trước:</span>Camera kép</li>
-                                                            <li><span class="label">Camera sau:</span>3 camera</li>
-                                                            <li><span class="label">RAM:</span>8 GB</li>
-                                                            <li><span class="label">Bộ nhớ trong:</span>128 GB</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <?php if ($product->is_on_sale() && $product->is_type('simple')): ?>
-                                                    <div class="on-sale">
-                                                        Giảm <?php echo round($product->get_sale_price() * 100 / $product->get_regular_price()) ?>
-                                                        %
-                                                    </div>
-                                                <?php endif; ?>
-                                            </div>
-                                        </a>
-                                    </div>
-                                <?php else: ?>
-                                    <a href="<?php the_permalink(); ?>">
-                                        <div class="w-md-20 product-by-category">
-                                            <div class="feature-product-by-category">
-                                                <img src="<?php echo $image[0]; ?>"
-                                                     data-id="<?php echo $deal_loop->post->ID; ?>">
-                                                <?php if ($product->is_on_sale() && $product->is_type('simple')): ?>
-                                                    <div class="on-sale">
-                                                        Giảm <?php echo round($product->get_sale_price() * 100 / $product->get_regular_price()) ?>
-                                                        %
-                                                    </div>
-                                                <?php endif; ?>
-                                            </div>
-                                            <p class="title-of-product-category"><a href="#"><?php the_title(); ?></a>
-                                            </p>
-                                            <p class="price-product-category"><?php echo $product->get_price_html(get_the_ID()); ?></p>
-                                        </div>
-                                    </a>
-                                <?php endif; ?>
-                                <?php $i++ ?>
-                            <?php endwhile; ?>
-                            <?php wp_reset_postdata(); ?>
-                        </div>
-                    </div>
+            $args = array(
+                'post_type' => 'product',
+                'posts_per_page' => 9,
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'product_cat',
+                        'field' => 'id',
+                        'terms' =>$dataProduct['categories'],
+                        'include_children' => true,
+                        'operator' => 'IN'
+                    )
+                )
+            );
+            $product_cate = new WP_Query($args);
+            require(locate_template('template-parts/content-custom-1.php'));
 
-                </div>
-            </div>
+            ?>
+        <?php endif; ?>
+
+        <!--Hiển thị theo chuyên mục 3 - Location 3-->
+        <?php if ($eshop_options->isActiveProductLocationThree()): ?>
+            <?php
+            $dataProduct = $eshop_options->getDataProductLocationThree();
+
+            $args = array(
+                'post_type' => 'product',
+                'posts_per_page' => 9,
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'product_cat',
+                        'field' => 'id',
+                        'terms' =>$dataProduct['categories'],
+                        'include_children' => true,
+                        'operator' => 'IN'
+                    )
+                )
+            );
+            $product_cate = new WP_Query($args);
+            require(locate_template('template-parts/content-custom-1.php'));
+
+            ?>
         <?php endif; ?>
 
         <!-- Tin tức-->
