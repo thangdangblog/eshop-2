@@ -49,11 +49,22 @@ class Home {
      */
     initCarouselSalePrice(){
         $(".show-product").owlCarousel({
-            items: 5,
+            items: 2,
             loop: true,
             dots: true,
             nav: true,
             navText: "",
+            responsive: {
+                768:{
+                    items: 3
+                },
+                990:{
+                    items: 4
+                },
+                1200:{
+                    items: 5
+                }
+            }
         });
     }
 }

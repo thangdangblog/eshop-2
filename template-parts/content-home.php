@@ -9,7 +9,7 @@
 
 ?>
 
-<div class="col-md-3 col-custom">
+<div class="col-sm-6 col-md-6 col-lg-3 col-custom">
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <?php eshop_mobile_post_thumbnail(); ?>
         <header class="entry-header">

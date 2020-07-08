@@ -220,6 +220,11 @@ function eshop_mobile_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	//Responsive
+    wp_enqueue_style( 'eshop-header-responsive-style', get_template_directory_uri().'/assets/css/responsive/components/header-responsive.css', array(), _S_VERSION );
+
+
 }
 add_action( 'wp_enqueue_scripts', 'eshop_mobile_scripts' );
 

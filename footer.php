@@ -14,28 +14,28 @@
 <footer id="colophon" class="site-footer mt-4">
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-sm-6 col-md-6 col-lg-3">
                 <?php if ( is_active_sidebar( 'footer_1' ) ) : ?>
                     <div id="primary-sidebar-1" class="primary-sidebar widget-area" role="complementary">
                         <?php dynamic_sidebar( 'footer_1' ); ?>
                     </div><!-- #primary-sidebar -->
                 <?php endif; ?>
             </div>
-            <div class="col-md-3">
+            <div class="col-sm-6 col-md-6 col-lg-3">
                 <?php if ( is_active_sidebar( 'footer_2' ) ) : ?>
                     <div id="primary-sidebar-2" class="primary-sidebar widget-area" role="complementary">
                         <?php dynamic_sidebar( 'footer_2' ); ?>
                     </div><!-- #primary-sidebar -->
                 <?php endif; ?>
             </div>
-            <div class="col-md-3">
+            <div class="col-sm-6 col-md-6 col-lg-3">
                 <?php if ( is_active_sidebar( 'footer_3' ) ) : ?>
                     <div id="primary-sidebar-3" class="primary-sidebar widget-area" role="complementary">
                         <?php dynamic_sidebar( 'footer_3' ); ?>
                     </div><!-- #primary-sidebar -->
                 <?php endif; ?>
             </div>
-            <div class="col-md-3">
+            <div class="col-sm-6 col-md-6 col-lg-3">
                 <?php if ( is_active_sidebar( 'footer_4' ) ) : ?>
                     <div id="primary-sidebar-4" class="primary-sidebar widget-area" role="complementary">
                         <?php dynamic_sidebar( 'footer_4' ); ?>

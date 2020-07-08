@@ -38,7 +38,7 @@ do_action('eshop_before_container_wrap');
     <div id="product-<?php the_ID(); ?>" <?php wc_product_class('', $product); ?>>
         <?php do_action('eshop_header_single_product_summary'); ?>
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-lg-6 col-xl-5">
                 <?php
                 /**
                  * Hook: woocommerce_before_single_product_summary.
@@ -49,7 +49,7 @@ do_action('eshop_before_container_wrap');
                 do_action('woocommerce_before_single_product_summary');
                 ?>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-6 col-xl-4">
                 <div class="row">
                     <div class="col-md-12">
                         <?php
@@ -70,7 +70,7 @@ do_action('eshop_before_container_wrap');
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 d-none d-xl-block">
                 <?php do_action('eshop_right_single_product_summary'); ?>
             </div>
         </div>

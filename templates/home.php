@@ -16,7 +16,7 @@ $sliders_home = $eshop_options->getDataHomeSlide();
         <div class="header-fearture">
             <div class="container">
                 <div class="row">
-                    <div style="padding-right: 0" class="col-md-8">
+                    <div style="padding-right: 0" class="col-md-1212 col-lg-8">
                         <div class="slide-home owl-carousel">
                             <?php foreach ($sliders_home as $slide): ?>
                                 <?php if (!empty($slide['url'])): ?>
@@ -40,7 +40,7 @@ $sliders_home = $eshop_options->getDataHomeSlide();
                             <?php endforeach; ?>
                         </ul>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 d-none d-lg-block">
                         <div class="right-featured">
                             <div class="header-ight-featured">
                                 <div class="title">Tin công nghệ</div>

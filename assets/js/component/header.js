@@ -4,11 +4,17 @@ jQuery( document ).ready(function($) {
 
 class Header {
     constructor() {
-        this._initEvent();
+        this.initEvent();
     }
 
-    _initEvent(){
+    initEvent(){
         $(".search-menu i").click(this.searchProduct);
+
+        // Mở rộng menu
+        $(".icon-expand-menu").click(this.showMenuMobile);
+
+        // Thu hẹp menu
+        $(".background-filter").click(this.hideMenuMobile);
     }
 
     /**
@@ -16,6 +22,23 @@ class Header {
      */
     searchProduct(){
         $("#searchform").submit();
+    }
+
+    /**
+     * Hiển thị menu mobile khi nhấn vào mở rộng menu
+     */
+    showMenuMobile(){
+        $(".sidebar-menu").css("left","0");
+        //Hiển thị background filter
+        $(".background-filter").css("display",'block');
+    }
+
+    /**
+     * Thực hiện tắt menu mobile khi nhấn ra ngoài menu
+     */
+    hideMenuMobile(){
+        $(".sidebar-menu").css("left","-250px");
+        $(".background-filter").css("display",'none');
     }
 
 }

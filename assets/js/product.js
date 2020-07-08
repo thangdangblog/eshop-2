@@ -51,9 +51,20 @@ class Product{
     initProductRelatedCarousel(){
         // Carousel related
         $(".related-carosel").owlCarousel({
-            items: 5,
+            items: 2,
             dots: true,
-            loop:true
+            loop:true,
+            responsive: {
+                768:{
+                    items: 3
+                },
+                990:{
+                    items: 4
+                },
+                1200:{
+                    items: 5
+                }
+            }
         });
     }
 
