@@ -41,11 +41,6 @@ Kirki::add_field( 'eshop', [
         ]
 
     ],
-    'default'     => [
-        [
-//            'image_slider' => esc_attr__( 'Link Text Example', 'eshop' ),
-        ],
-    ],
     'choices' => [
         'limit' => 5
     ],
