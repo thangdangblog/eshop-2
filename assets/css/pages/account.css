@@ -51,3 +51,20 @@ span.show-password-input{
 .woocommerce-MyAccount-content input{
     height: 40px;
 }
+
+.woocommerce-account form.woocommerce-form.woocommerce-form-login.login label {
+    display: block;
+    width: 100%;
+}
+
+.woocommerce-account form.woocommerce-form.woocommerce-form-login.login .password-input {
+    width: 100%;
+}
+
+.woocommerce-account form.woocommerce-form.woocommerce-form-login.login {
+    /*width: 50%;*/
+    /*margin: 0 auto;*/
+}
+.woocommerce-account header.entry-header {
+    display: none;
+}

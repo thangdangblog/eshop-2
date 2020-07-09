@@ -164,7 +164,7 @@ function eshp_custom_product_searchform( $form ) {
 function custom_mini_cart() {
 ?>
     <div class="filter-mini-cart"></div>
-    <div class="cart-all-page">
+    <div class="cart-all-page d-lg-block d-none ">
         <div class="cart-all-page-inline"></div>
         <div class="count-cart">
             <?php echo WC()->cart->get_cart_contents_count(); ?>

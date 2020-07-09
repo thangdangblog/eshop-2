@@ -1,5 +1,4 @@
 .quantity {
-    width: 50%;
     margin: 0 !important;
     border-top-right-radius: 0;
     position: relative;
@@ -59,3 +58,5 @@ button.single_add_to_cart_button {
 .quantity input {
     -moz-appearance: textfield;
 }
+
+td.product-quantity::before {content: "" !important;}

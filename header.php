@@ -65,10 +65,12 @@
                         <a href="<?php echo home_url() ?>"><img src="https://bizweb.dktcdn.net/100/348/133/themes/709285/assets/logo.png?1586914632171" alt="" class="eshop-logo-image"></a>
                     </div>
                     <div class="cart-mini-mobile">
+                        <a href="<?php echo wc_get_cart_url() ?>">
                         <i class="fas fa-cart-arrow-down"></i>
                         <div class="quatity-header-mobile">
                             <?php echo WC()->cart->get_cart_contents_count(); ?>
                         </div>
+                        </a>
                     </div>
                 </div>
                 <div class="search-mobile-header">
@@ -92,9 +94,14 @@
                 </a>
                 <div class="nav-account">
                     <ul>
-                        <li><a href="">Đăng ký</a></li>
-                        <li><a href="">Đăng nhập</a></li>
-                    </ul>
+                    <?php if(is_user_logged_in()): ?>
+                        <li><a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>">Quản lý tài khoản</a></li>
+                        <li><a href="<?php echo wp_logout_url(); ?>">Đăng xuất</a></li>
+                    <?php else: ?>
+                        <li><a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>">Đăng ký</a></li>
+                        <li><a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>">Đăng nhập</a></li>
+                    <?php endif; ?>
+                        </ul>
                 </div>
                 <h3 class="title-menu-mobile">Danh mục</h3>
                 <?php
