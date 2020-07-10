@@ -123,6 +123,7 @@ function eshop_mobile_content_width() {
 }
 add_action( 'after_setup_theme', 'eshop_mobile_content_width', 0 );
 
+
 /**
  * Register widget area.
  *
@@ -142,6 +143,7 @@ function eshop_mobile_widgets_init() {
 	);
 }
 add_action( 'widgets_init', 'eshop_mobile_widgets_init' );
+
 
 /**
  * Enqueue scripts and styles.
@@ -208,9 +210,20 @@ function eshop_mobile_scripts() {
         wp_enqueue_style( 'eshop-contact-style', get_template_directory_uri().'/assets/css/contact.css', array(), _S_VERSION );
     }
 
+    if(is_404()){
+        wp_enqueue_style( 'eshop-404-style', get_template_directory_uri().'/assets/css/pages/404.css', array(), _S_VERSION );
+    }
+
     if(is_product_category() || is_search() || is_shop() ){
+        global $wp_query;
         wp_enqueue_style( 'eshop-category-product-style', get_template_directory_uri().'/assets/css/categories-product.css', array(), _S_VERSION );
+        wp_enqueue_style( 'eshop-filter-style', get_template_directory_uri().'/assets/css/component/filter.css', array(), _S_VERSION );
         wp_enqueue_script( 'eshop-category-js', get_template_directory_uri() . '/assets/js/category.js', array(), _S_VERSION, true );
+        wp_enqueue_script( 'eshop-filter-js', get_template_directory_uri() . '/assets/js/component/filter.js', array('jquery'), _S_VERSION, true );
+        wp_localize_script( 'eshop-filter-js', 'ajax_object_filter', array(
+            'ajax_url' => admin_url( 'admin-ajax.php' ),
+            'query_object' => $wp_query->query
+        ));
 	}
 
 	wp_enqueue_script( 'eshop-mobile-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
@@ -227,6 +240,8 @@ function eshop_mobile_scripts() {
 
 }
 add_action( 'wp_enqueue_scripts', 'eshop_mobile_scripts' );
+
+
 
 if (!is_admin()) add_action("wp_enqueue_scripts", "my_jquery_enqueue", 11);
 function my_jquery_enqueue() {
@@ -296,10 +311,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 /**
- * Khởi tạo class eshop option
+ * Load ajax hanlde
  */
-
-function initClass(){
-    $eshop_options = new EshopOption();
-}
-add_action('init','initClass');
+require get_template_directory() . '/inc/handle/ajax.php';

@@ -1,4 +1,5 @@
 jQuery( document ).ready(function($) {
+
     $(".aside-item").click(function(){
         if($(this).hasClass("active-fillter")){
             $(".aside-item .list-item-search").css("display","none");
@@ -23,3 +24,4 @@ jQuery( document ).ready(function($) {
     });
 
 });
+

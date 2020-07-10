@@ -1,8 +1,10 @@
 {
     "extends": [
-        "plugin:@wordpress/eslint-plugin/esnext"
+        "airbnb-base"
     ],
+    "parser": "babel-eslint",
     "env": {
         "browser": true
     }
+    
 }

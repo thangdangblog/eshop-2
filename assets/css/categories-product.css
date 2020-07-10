@@ -121,6 +121,7 @@ body {
 .search_by_variable {
     border-bottom: 1px solid #f4f4f4;
     padding: 10px 0px;
+    user-select: none;
 }
 
 .aside-item ul {

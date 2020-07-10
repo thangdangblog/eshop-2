@@ -23,23 +23,25 @@ if (!defined('ABSPATH')) {
 
 <div class="search_by_variable">
     <div class="label search_by_variable_label">Tìm theo:</div>
+    <?php
+        $brands = get_terms([
+            'taxonomy' => 'brand',
+            'hide_empty' => false,
+        ]);
+    ?>
     <div class="aside-item" data-id="#thuong-hieu">Thương hiệu
         <div class="list-item-search" id="thuong-hieu">
             <ul>
-                <li class="item-search-variable"><div class="checkbox-item checked"></div>Apple</li>
-                <li class="item-search-variable"><div class="checkbox-item"></div>Asus</li>
-                <li class="item-search-variable"><div class="checkbox-item"></div>HP</li>
+                <?php foreach ($brands as $brand): ?>
+                <li data-filter-type="brand" data-filter-value="<?php echo $brand->term_id ?>" data-filter="#filter_<?php echo $brand->term_id ?>" class="item-search-variable"><div class="checkbox-item"></div><?php echo $brand->name ?></li>
+                <?php endforeach; ?>
             </ul>
         </div>
     </div>
     <div class="aside-item" data-id="#gia-san-pham">Giá sản phẩm
         <div class="list-item-search" id="gia-san-pham">
             <ul>
-                <li class="item-search-variable"> <div class="checkbox-item checked"></div> Dưới 100.000 VNĐ</li>
-                <li class="item-search-variable"> <div class="checkbox-item"></div> Dưới 100.000 VNĐ</li>
-                <li class="item-search-variable"> <div class="checkbox-item"></div> Dưới 100.000 VNĐ</li>
-                <li class="item-search-variable"> <div class="checkbox-item"></div> Dưới 100.000 VNĐ</li>
-                <li class="item-search-variable"> <div class="checkbox-item"></div> Dưới 100.000 VNĐ</li>
+                <li data-filter-type="price" data-filter-value="<100000" data-filter="#filter_100000" class="item-search-variable"> <div class="checkbox-item checked"></div> Dưới 100.000 VNĐ</li>
             </ul>
         </div>
     </div>
@@ -47,4 +49,8 @@ if (!defined('ABSPATH')) {
     <div class="aside-item">Kích thước</div>
     <div class="aside-item">Màn hình</div>
     <div class="aside-item">Hệ điều hành</div>
+
+    <div class="filter-value">
+        <div class="clear-all">Bỏ hết</div>
+    </div>
 </div>

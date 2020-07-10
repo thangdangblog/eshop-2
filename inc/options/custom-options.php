@@ -13,7 +13,6 @@ if (!function_exists('loop_columns')) {
     }
 }
 
-//Remove add to cart
 function remove_hook_custom(){
 
     if(is_singular() || is_search() || is_product_category() || is_shop()){
@@ -57,9 +56,16 @@ function add_hook_custom(){
     }
 
 
+
+
 }
 add_action('wp','add_hook_custom');
 
+
+//add_ajax_hook
+add_action('eshop_ajax_shop_loop_item_title','woocommerce_template_loop_product_title',10);
+add_action('eshop_ajax_after_shop_loop_item_title','woocommerce_template_loop_price',10);
+add_action('eshop_ajax_after_shop_loop_item','woocommerce_template_loop_product_link_close',10);
 
 add_filter( 'woocommerce_breadcrumb_defaults', 'eshop_woocommerce_breadcrumbs' );
 function eshop_woocommerce_breadcrumbs() {

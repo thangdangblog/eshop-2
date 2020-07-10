@@ -24,10 +24,10 @@ if (!defined('ABSPATH')) {
 <div class="sort_by">
     <div class="label sort_label">Xếp theo:</div>
     <ul>
-        <li><div class="radio-check"><div class="round"></div></div>Tên A-Z</li>
-        <li><div class="radio-check"><div class="round"></div></div>Tên Z-A</li>
-        <li><div class="radio-check"><div class="round"></div></div>Hàng mới</li>
-        <li><div class="radio-check"><div class="round"></div></div>Giá từ thấp đến cao</li>
-        <li><div class="radio-check"><div class="round"></div></div>Giá từ cao xuống thấp</li>
+        <li class="filter-action" data-action="sortASC"><div class="radio-check"><div class="round"></div></div>Tên A-Z</li>
+        <li class="filter-action" data-action="sortDESC"><div class="radio-check"><div class="round"></div></div>Tên Z-A</li>
+        <li class="filter-action" data-action="sortNew"><div class="radio-check"><div class="round"></div></div>Hàng mới</li>
+        <li class="filter-action" data-action="sortlowtohight"><div class="radio-check"><div class="round"></div></div>Giá từ thấp đến cao</li>
+        <li class="filter-action" data-action="sorthighttolow"><div class="radio-check"><div class="round"></div></div>Giá từ cao xuống thấp</li>
     </ul>
 </div>
