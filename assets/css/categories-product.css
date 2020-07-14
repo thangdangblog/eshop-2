@@ -14,12 +14,6 @@ body {
     border-left: 1px solid #d4d4d4;
 }
 
-.archive-product .row-main {
-    border-left: 1px solid gainsboro;
-    border-top: 1px solid gainsboro;
-    margin: 0;
-}
-
 .archive-product .row-main > div {
     border-right: 1px solid gainsboro;
     border-bottom: 1px solid gainsboro;
@@ -428,4 +422,13 @@ body {
 .categoies-child a:hover {
     background: white;
     color: #f30;
+}
+
+.notfound {
+    width: 100%;
+    background: #fcf8e3;
+    padding: 20px;
+    text-align: center;
+    color: gray;
+    font-weight: bold;
 }

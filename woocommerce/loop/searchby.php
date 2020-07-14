@@ -41,7 +41,9 @@ if (!defined('ABSPATH')) {
     <div class="aside-item" data-id="#gia-san-pham">Giá sản phẩm
         <div class="list-item-search" id="gia-san-pham">
             <ul>
-                <li data-filter-type="price" data-filter-value="<100000" data-filter="#filter_100000" class="item-search-variable"> <div class="checkbox-item checked"></div> Dưới 100.000 VNĐ</li>
+                <li data-filter-type="price" data-filter-value='<?php echo serialize(['<=',100000]) ?>' data-filter="#filter_100000" class="item-search-variable"> <div class="checkbox-item"></div> Dưới 100.000 VNĐ</li>
+                <li data-filter-type="price" data-filter-value='<?php echo serialize(['between',100000,200000]) ?>' data-filter="#filter_100000_200000" class="item-search-variable"> <div class="checkbox-item"></div> 100.000 VNĐ - 200.000 VNĐ</li>
+                <li data-filter-type="price" data-filter-value='<?php echo serialize(['between',1000000,20000000]) ?>' data-filter="#filter_1000000_20000000" class="item-search-variable"> <div class="checkbox-item"></div> 1000.000 VNĐ - 20.000.000 VNĐ</li>
             </ul>
         </div>
     </div>

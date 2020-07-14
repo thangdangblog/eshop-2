@@ -24,7 +24,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<div class="w-md-20 one-product-item">
+<div class="w-md-20 col-6 col-sm-4 one-product-item">
         <?php
         /**
          * Hook: woocommerce_before_shop_loop_item.

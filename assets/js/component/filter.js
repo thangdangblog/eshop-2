@@ -34,6 +34,9 @@ class Filter {
 
     // Kiểm tra còn điều kiện lọc hay không, nếu không thì ẩn đi
     this.toggleClearButton();
+
+    // Xử lý lọc
+    this.handleFilter();
   }
 
   // Remove all filter
@@ -48,31 +51,40 @@ class Filter {
   }
 
   // Xử lý khi nhấn vào sort filter
-  filterSort() {
-    // Active nút lọc vừa ấn
+  filterSort = (event) => {
+    const currentClick = $(event.target);
+    // Hủy toàn bộ hiệu ứng các nút
     $('.filter-action .round').css('display', 'none');
     $('.filter-action .radio-check').css('border-color', '#c4c4c4');
-    $(this).find('.round').css('display', 'block');
-    $(this).find('.radio-check').css('border-color', '#f30');
+    $('.filter-active').removeClass('filter-active');
+
+    // Thêm hiệu ứng vào nút vừa nhấn
+    $(currentClick).find('.round').css('display', 'block');
+    $(currentClick).find('.radio-check').css('border-color', '#f30');
+    $(currentClick).addClass('filter-active');
 
     // Chuyển màn hình sang trạng thái chờ
     $('.filter-background-all').css('display', 'block');
-    const actionType = $(this).attr('data-action');
-    $.ajax({
-      url: ajax_object_filter.ajax_url,
-      method: 'POST',
-      data: {
-        action: 'filter_sort_ajax',
-        actionType,
-        queryObject: ajax_object_filter.query_object,
-      },
-      dataType: '',
-      success: (res) => {
-        // Thu màn hình chờ - Chỉnh active button
-        $('.filter-background-all').css('display', 'none');
-        $('.row.row-main').html(res);
-      },
-    });
+
+    // Xử lý lọc
+    this.handleFilter();
+
+    // const actionType = $(this).attr('data-action');
+    // $.ajax({
+    //   url: ajax_object_filter.ajax_url,
+    //   method: 'POST',
+    //   data: {
+    //     action: 'filter_sort_ajax',
+    //     actionType,
+    //     queryObject: ajax_object_filter.query_object,
+    //   },
+    //   dataType: '',
+    //   success: (res) => {
+    //     // Thu màn hình chờ - Chỉnh active button
+    //     $('.filter-background-all').css('display', 'none');
+    //     $('.row.row-main').html(res);
+    //   },
+    // });
   }
 
   // Tạo nút hiển thị khi tạo bộ lọc
@@ -114,10 +126,11 @@ class Filter {
     const price = [];
     const allCheckedBrand = $('li[data-filter-type="brand"].item-search-variable .checkbox-item.checked');
     const allCheckedPrice = $('li[data-filter-type="price"].item-search-variable .checkbox-item.checked');
+    const sortCheckedAction = $('.filter-active').attr('data-action');
 
     // Xử lý lấy dữ liệu lọc theo brand
     allCheckedBrand.each((index, elm) => {
-      brand.push($(elm).parent().attr('data-filter-value'));
+      brand.push(parseInt($(elm).parent().attr('data-filter-value'), 10));
     });
 
     // Xử lý lấy dữ liệu lọc theo khoảng giá
@@ -129,10 +142,21 @@ class Filter {
     $.ajax({
       url: ajax_object_filter.ajax_url,
       method: 'POST',
-      data: { action },
+      data: {
+        action: 'filter_product',
+        dataFilter: {
+          brand,
+          price,
+          sortCheckedAction,
+        },
+        queryObject: ajax_object_filter.query_object,
+      },
       dataType: '',
       success: (res) => {
-        
+        console.log(res);
+        // Thu màn hình chờ - Chỉnh active button
+        $('.filter-background-all').css('display', 'none');
+        $('.row.row-main').html(res);
       },
     });
   }
