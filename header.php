@@ -8,7 +8,7 @@
  *
  * @package eshop_mobile
  */
-
+$eshop_walker = new Eshop_Nav_Walker;
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -47,6 +47,7 @@
                                 array(
                                     'theme_location' => 'menu-1',
                                     'menu_id'        => 'primary-menu',
+                                    'walker'         => $eshop_walker
                                 )
                             );
                             ?>

@@ -315,3 +315,11 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * Load ajax hanlde
  */
 require get_template_directory() . '/inc/handle/ajax.php';
+
+/**
+ * Custom menu
+ */
+require get_template_directory() . '/inc/menu/custom-fields-menu.php';
+require get_template_directory() . '/inc/menu/Eshop_Nav_Walker.php';
+
+

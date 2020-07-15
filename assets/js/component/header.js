@@ -5,6 +5,9 @@ jQuery( document ).ready(function($) {
 class Header {
     constructor() {
         this.initEvent();
+
+        //Create expand button
+        this.createExpandButton();
     }
 
     initEvent(){
@@ -15,6 +18,26 @@ class Header {
 
         // Thu hẹp menu
         $(".background-filter").click(this.hideMenuMobile);
+
+        // Expand child Menu
+        $(document).on('click','.expand-button',this.expandSubMenu)
+    }
+
+    /**
+     * Mở rộng menu con
+     */
+    expandSubMenu = (event) => {
+        const currentClick = $(event.target);
+        if($(currentClick).parent().parent().find('> .sub-menu').hasClass('expaned-menu')){
+            $(currentClick).parent().parent().find('> .sub-menu').removeClass('expaned-menu');
+            $(currentClick).removeClass('fa-minus');
+            $(currentClick).addClass('fa-plus');
+        }else{
+            $(currentClick).parent().parent().find('> .sub-menu').addClass('expaned-menu');
+            $(currentClick).removeClass('fa-plus');
+            $(currentClick).addClass('fa-minus');
+        }
+
     }
 
     /**
@@ -39,6 +62,14 @@ class Header {
     hideMenuMobile(){
         $(".sidebar-menu").css("left","-250px");
         $(".background-filter").css("display",'none');
+    }
+
+    /**
+     * Tạo nút mở rộng menu mobile
+     */
+    createExpandButton(){
+        const html = '<div class="expand-button"><i class="fas fa-plus"></i></div>';
+        $('.eshop-header-mobile .menu-item-has-children').append(html);
     }
 
 }

@@ -61,12 +61,12 @@ a{
 
 .triangle {border: 30px solid transparent;right: 57%;position: absolute;border-right: 30px solid white;}
 
-.eshop-nav-menu {
+.eshop-header .eshop-nav-menu {
     position: relative;
     height: 100%;
 }
 
-.eshop-nav-menu ul#primary-menu {
+.eshop-header .eshop-nav-menu ul#primary-menu {
     margin: 0;
     padding: 0;
     animation: none;
@@ -76,13 +76,13 @@ a{
     height: 100%;
 }
 
-.eshop-nav-menu ul#primary-menu li {
+.eshop-header .eshop-nav-menu ul#primary-menu > li {
     display: inline-block;
     height: 100%;
     position: relative;
 }
 
-.eshop-nav-menu ul#primary-menu li a {
+.eshop-header .eshop-nav-menu ul#primary-menu > li > a {
     height: 100%;
     display: block;
     line-height: 90px;
@@ -90,7 +90,7 @@ a{
     padding: 0 9px;
 }
 
-.eshop-nav-menu ul#primary-menu li a i {
+.eshop-header .eshop-nav-menu ul#primary-menu li a i {
     position: absolute;
     font-size: 30px;
     left: 50%;
@@ -98,7 +98,7 @@ a{
     top: 12px;
 }
 
-ul#primary-menu li .sub-menu {
+.eshop-header ul#primary-menu > li > .sub-menu {
     position: absolute;
     background: white;
     border: 1px solid #f0f0f0;
@@ -108,17 +108,19 @@ ul#primary-menu li .sub-menu {
     top: 90px;
     visibility: hidden;
     opacity: 0;
+    list-style-type: none;
 }
 
-ul#primary-menu li .sub-menu li {
+.eshop-header ul#primary-menu > li:not(.eshop-mega-menu) > .sub-menu > li {
     width: 150px;
     height: 50px;
     left: 0;
     border-bottom: 1px solid #ececec;
+    padding-left: 10px;
 }
 
 
-ul#primary-menu li .sub-menu li a {
+.eshop-header ul#primary-menu > li > .sub-menu > li > a {
     height: 50px;
     line-height: 50px;
 }
@@ -127,7 +129,7 @@ ul#primary-menu li .sub-menu li:nth-last-child(1) {
     border-bottom: unset;
 }
 
-ul#primary-menu li:hover .sub-menu{
+.eshop-header ul#primary-menu > li:hover > .sub-menu{
     top: 60px;
     visibility: visible;
     opacity: 1;
@@ -150,4 +152,78 @@ input#searchsubmit {
     left: 0;
     z-index: 9999;
     display: none;
+}
+
+.eshop-header .eshop-mega-menu > .sub-menu {min-width: 700px;left: 50%;transform: translateX(-50%);}
+
+.eshop-header .eshop-mega-menu > .sub-menu > li {
+    width: 33% !important;
+    display: inline-block !important;
+    float: left;
+}
+
+.eshop-header .eshop-mega-menu .sub-menu {
+    padding: 0;
+    margin: 0;
+}
+
+.eshop-header .eshop-mega-menu > ul ul li {
+    width: 100%;
+    padding-left: 10px;
+    height: 30px !important;
+    line-height: 30px !important;
+}
+
+.eshop-header .eshop-mega-menu > .sub-menu > li > a {
+    font-weight: bold;
+}
+
+.eshop-header .eshop-nav-menu .sub-menu li i {
+    display: none;
+}
+
+.eshop-header .eshop-mega-menu > .sub-menu > li > .sub-menu {
+    list-style-type: none;
+}
+
+.eshop-header .eshop-mega-menu > ul ul li a {
+    height: 30px;
+}
+
+.eshop-header ul#primary-menu > li.eshop-mega-menu > .sub-menu {
+    padding: 10px 30px;
+}
+
+.eshop-header .eshop-nav-menu ul#primary-menu > li:not(.eshop-mega-menu) > .sub-menu > li > .sub-menu {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: absolute;
+    width: 100%;
+    left: -100%;
+    top: 30px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.4s;
+    background: white;
+}
+
+.eshop-header .eshop-nav-menu ul#primary-menu > li:not(.eshop-mega-menu) > .sub-menu > li > .sub-menu a {
+    height: 50px;
+    line-height: 50px;
+    display: block;
+    background: white;
+    padding-left: 11px;
+    border: 1px solid #ececec;
+    border-top: unset;
+}
+
+.eshop-header .eshop-nav-menu ul#primary-menu > li:not(.eshop-mega-menu) > .sub-menu > li > .sub-menu a:nth-child(1) {
+    border-top: 1px solid #ececec !important;
+}
+
+.eshop-header .eshop-nav-menu ul#primary-menu > li:not(.eshop-mega-menu) > .sub-menu > li:hover > .sub-menu{
+    top: -1px;
+    visibility: visible;
+    opacity: 1;
 }
